@@ -1,7 +1,19 @@
 import React from 'react'
+import SidebarMenu from './SidebarMenuI'
+import { FaTwitter } from 'react-icons/fa'
 
 const Sidebar = () => {
-	return <div>Sidebar</div>
+	return (
+		<section className='sidebar'>
+			{/* Logo */}
+			<div className='sidebar__Logo'>
+				<FaTwitter />
+			</div>
+
+			{/* Menu */}
+			<SidebarMenu />
+		</section>
+	)
 }
 
 export default Sidebar
