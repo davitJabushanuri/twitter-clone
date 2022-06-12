@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Search from '../components/Search'
 import Sidebar from '../components/Sidebar'
 
 const Home: NextPage = () => {
@@ -13,7 +14,8 @@ const Home: NextPage = () => {
 			</Head>
 
 			<main>
-				<Sidebar />
+				{/* <Sidebar /> */}
+				<Search />
 			</main>
 		</div>
 	)

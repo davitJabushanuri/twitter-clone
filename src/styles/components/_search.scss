@@ -1,0 +1,41 @@
+@use '../utilities/' as *;
+.search {
+	padding: 0.6rem 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	background-color: #eff3f4;
+	border-radius: 30px;
+	width: 340px;
+	color: #484e53;
+
+	&:focus-within {
+		background-color: #fff;
+		outline: 1px solid $clr-primary;
+
+		.search__icon {
+			color: $clr-primary;
+		}
+	}
+
+	&__icon {
+		font-size: 1.2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__input {
+		color: inherit;
+		border: none;
+		font-weight: 300;
+		background-color: transparent;
+		outline: none;
+		caret-color: $clr-primary;
+
+		&::placeholder {
+			color: inherit;
+			font-weight: 300;
+		}
+	}
+}
