@@ -1,7 +1,6 @@
 $breakpoints: (
 	'phone': 400px,
 	'phone-wide': 480px,
-	'tablet': 560px,
 	'tablet-small': 640px,
 	'tablet': 768px,
 	'tablet-wide': 1024px,
@@ -39,4 +38,16 @@ $breakpoints: (
 	&::-webkit-input-placeholder {
 		@content;
 	}
+}
+
+//list reset mixin
+@mixin list-reset {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+// border radius mixin
+@mixin border-radius($radius) {
+	border-radius: $radius;
 }
