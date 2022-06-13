@@ -3,23 +3,37 @@
 .user {
 	display: none;
 
-	@include mq('tablet') {
-		width: 240px;
+	&__info {
+		display: none;
+	}
+
+	@include mq('phone-wide') {
 		margin-top: auto;
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		padding: 0.8rem;
-		border-radius: 40px;
 		cursor: pointer;
+
+		&__avatar {
+			overflow: hidden;
+			padding: 0.4rem;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: none;
+			border-radius: 50%;
+			font-size: 1.3rem;
+			color: #657786;
+			background: #ccd6dd;
+		}
 
 		&:hover {
 			background-color: rgb(219, 219, 219);
 		}
 
 		&__info {
-			display: flex;
-			flex-direction: column;
+			display: none;
 
 			&__name {
 				font-weight: bold;
@@ -33,6 +47,7 @@
 		}
 
 		&__button {
+			display: none;
 			margin-left: auto;
 		}
 	}

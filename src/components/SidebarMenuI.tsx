@@ -17,7 +17,7 @@ const SidebarMenu = () => {
 			</li>
 
 			<FiSearch className='sidebarMenu__search' />
-			<li className='sidebarMenu__item hide'>
+			<li className='sidebarMenu__item hide-tablet'>
 				<div className='sidebarMenu__item__text'>
 					<HiOutlineHashtag />
 					<span>Explore</span>
@@ -35,13 +35,13 @@ const SidebarMenu = () => {
 					<span>Messages</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item hide'>
+			<li className='sidebarMenu__item hide-tablet'>
 				<div className='sidebarMenu__item__text'>
 					<BsBookmark />
 					<span>Bookmarks</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item hide'>
+			<li className='sidebarMenu__item hide-tablet'>
 				<div className='sidebarMenu__item__text'>
 					<FaRegListAlt />
 					<span>Lists</span>

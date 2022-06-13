@@ -1,11 +1,13 @@
-import Image from 'next/image'
 import React from 'react'
 import { FiMoreHorizontal } from 'react-icons/fi'
+import { FaUserAlt } from 'react-icons/fa'
 
 const User = () => {
 	return (
 		<div className='user'>
-			<Image src='/avatar.png' alt='user' height='40px' width='40px' />
+			<button className='user__avatar'>
+				<FaUserAlt />
+			</button>
 			<div className='user__info'>
 				<span className='user__info__name'>John Doe</span>
 				<span className='user__info__username'>@John1995</span>

@@ -28,11 +28,16 @@
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 	}
 
-	@include mq('tablet') {
+	@include mq('phone-wide') {
 		height: 100vh;
 		padding: 1rem;
+		padding-top: 2px;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		width: 4rem;
+		gap: 0;
+		border-right: 1px solid rgb(240, 240, 240);
 
 		&__logo {
 			width: 50px;
@@ -51,9 +56,9 @@
 		}
 
 		&__button {
-			border-radius: 30px;
-			width: 240px;
-			margin-top: 1.2rem;
+			position: static;
+			font-size: 1.2rem;
+			margin-top: 1rem;
 		}
 	}
 }
