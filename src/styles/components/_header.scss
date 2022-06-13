@@ -3,12 +3,26 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	padding: 0 1rem;
+	padding: 0.4rem 1rem;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	max-width: 600px;
+	gap: 1.4rem;
 	background-color: rgba($color: #fff, $alpha: 0.99);
+
+	&__user {
+		overflow: hidden;
+		padding: 0.4rem;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		border-radius: 50%;
+		font-size: 1.3rem;
+		color: #657786;
+		background: #ccd6dd;
+	}
 
 	&__title {
 		font-size: 1.2rem;
@@ -16,6 +30,7 @@
 	}
 
 	&__icon {
+		margin-left: auto;
 		padding: 0.8rem;
 		cursor: pointer;
 		display: flex;
