@@ -1,33 +1,39 @@
+@use '../utilities/' as *;
+
 .user {
-	width: 240px;
-	margin-top: auto;
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	padding: 0.8rem;
-	border-radius: 40px;
-	cursor: pointer;
+	display: none;
 
-	&:hover {
-		background-color: rgb(219, 219, 219);
-	}
-
-	&__info {
+	@include mq('tablet') {
+		width: 240px;
+		margin-top: auto;
 		display: flex;
-		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.8rem;
+		border-radius: 40px;
+		cursor: pointer;
 
-		&__name {
-			font-weight: bold;
+		&:hover {
+			background-color: rgb(219, 219, 219);
 		}
 
-		&__username {
-			font-size: 0.8rem;
-			font-weight: normal;
-			color: rgb(167, 167, 167);
-		}
-	}
+		&__info {
+			display: flex;
+			flex-direction: column;
 
-	&__button {
-		margin-left: auto;
+			&__name {
+				font-weight: bold;
+			}
+
+			&__username {
+				font-size: 0.8rem;
+				font-weight: normal;
+				color: rgb(167, 167, 167);
+			}
+		}
+
+		&__button {
+			margin-left: auto;
+		}
 	}
 }

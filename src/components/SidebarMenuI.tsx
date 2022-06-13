@@ -4,6 +4,7 @@ import { FaHome, FaRegListAlt } from 'react-icons/fa'
 import { HiOutlineHashtag, HiOutlineMail } from 'react-icons/hi'
 import { BsBell, BsBookmark, BsPerson } from 'react-icons/bs'
 import { CgMoreO } from 'react-icons/cg'
+import { FiSearch } from 'react-icons/fi'
 
 const SidebarMenu = () => {
 	return (
@@ -14,7 +15,9 @@ const SidebarMenu = () => {
 					<span>Home</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item'>
+
+			<FiSearch className='sidebarMenu__search' />
+			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
 					<HiOutlineHashtag />
 					<span>Explore</span>
@@ -32,25 +35,25 @@ const SidebarMenu = () => {
 					<span>Messages</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item'>
+			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
 					<BsBookmark />
 					<span>Bookmarks</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item'>
+			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
 					<FaRegListAlt />
 					<span>Lists</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item'>
+			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
 					<BsPerson />
 					<span>Profile</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item'>
+			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
 					<CgMoreO />
 					<span>More</span>

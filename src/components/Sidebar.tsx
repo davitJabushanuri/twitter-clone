@@ -1,6 +1,8 @@
 import React from 'react'
 import SidebarMenu from './SidebarMenuI'
 import { FaTwitter } from 'react-icons/fa'
+import { RiQuillPenFill } from 'react-icons/ri'
+
 import User from './User'
 
 const Sidebar = () => {
@@ -15,7 +17,7 @@ const Sidebar = () => {
 			<SidebarMenu />
 
 			{/* Tweet Button */}
-			<button className='sidebar__button'>Tweet</button>
+			<button className='sidebar__button'>{<RiQuillPenFill />}</button>
 
 			{/* User */}
 			<User />

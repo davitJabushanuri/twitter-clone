@@ -1,27 +1,47 @@
+@use '../utilities/' as *;
 .sidebarMenu {
 	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
+	padding: 1rem 0;
 	list-style: none;
 	font-size: 1.6rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+	border-top: 1px solid rgb(240, 240, 240);
+
+	.hide {
+		display: none;
+	}
 
 	&__item {
 		&__text {
-			display: inline-flex;
+			display: flex;
 			align-items: center;
-			gap: 1.2rem;
 			cursor: pointer;
-			padding: 0.6rem 1.6rem 0.6rem 1rem;
-			border-radius: 50px;
-
-			&:hover {
-				background-color: #e2e2e2;
-			}
 
 			span {
-				font-size: 1.4rem;
-				font-weight: 300;
+				display: inline-flex;
+				border-radius: 50px;
+				display: none;
+
+				&:hover {
+					background-color: #e2e2e2;
+				}
+			}
+		}
+	}
+	@include mq('tablet') {
+		&__item {
+			&__text {
+				align-items: center;
+				gap: 1.2rem;
+				padding: 0.6rem 1.6rem 0.6rem 1rem;
+
+				span {
+					font-size: 1.4rem;
+					font-weight: 300;
+				}
 			}
 		}
 	}

@@ -1,0 +1,32 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 0 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 600px;
+	background-color: rgba($color: #fff, $alpha: 0.99);
+
+	&__title {
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+
+	&__icon {
+		padding: 0.8rem;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		border-radius: 50%;
+		background: none;
+
+		&:hover {
+			background: #f5f5f5;
+		}
+	}
+}
