@@ -4,7 +4,6 @@
 	display: none;
 
 	@include mq('phone-wide') {
-		margin: 4rem 0 0 4rem;
 		padding: 1rem;
 		max-width: 600px;
 		display: grid;
@@ -72,5 +71,8 @@
 				}
 			}
 		}
+	}
+
+	@include mq('phone-wide') {
 	}
 }

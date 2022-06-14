@@ -17,11 +17,14 @@ const Home: NextPage = () => {
 			</Head>
 
 			<main>
-				<Header />
-				<NewPost />
-				<Posts />
-				<Sidebar />
-				<Search />
+				<section className='sidebar-container'>
+					<Sidebar />
+				</section>
+				<section className='feed'>
+					<Header />
+					<NewPost />
+					<Posts />
+				</section>
 			</main>
 		</div>
 	)

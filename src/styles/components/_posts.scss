@@ -1,9 +1,5 @@
 @use '../utilities/' as *;
 
 .posts {
-	margin: 4rem 0;
-	@include mq('phone-wide') {
-		margin: 0 0 0 4rem;
-	}
 	max-width: 600px;
 }
