@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { FaRegListAlt } from 'react-icons/fa'
-import { HiOutlineHashtag, HiOutlineMail, HiHome } from 'react-icons/hi'
+import { HiOutlineHashtag, HiHome } from 'react-icons/hi'
 import { BsBell, BsBookmark, BsPerson } from 'react-icons/bs'
 import { CgMoreO } from 'react-icons/cg'
 import { FiSearch } from 'react-icons/fi'

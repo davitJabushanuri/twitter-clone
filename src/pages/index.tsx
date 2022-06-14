@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../components/Header'
 import NewPost from '../components/NewPost'
+import Posts from '../components/Posts'
 import Search from '../components/Search'
 import Sidebar from '../components/Sidebar'
 
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
 			<main>
 				<Header />
 				<NewPost />
+				<Posts />
 				<Sidebar />
 				<Search />
 			</main>
