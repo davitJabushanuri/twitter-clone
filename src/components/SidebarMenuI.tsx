@@ -1,17 +1,18 @@
 import Image from 'next/image'
 import React from 'react'
-import { FaHome, FaRegListAlt } from 'react-icons/fa'
-import { HiOutlineHashtag, HiOutlineMail } from 'react-icons/hi'
+import { FaRegListAlt } from 'react-icons/fa'
+import { HiOutlineHashtag, HiOutlineMail, HiHome } from 'react-icons/hi'
 import { BsBell, BsBookmark, BsPerson } from 'react-icons/bs'
 import { CgMoreO } from 'react-icons/cg'
 import { FiSearch } from 'react-icons/fi'
+import { MdOutlineEmail } from 'react-icons/md'
 
 const SidebarMenu = () => {
 	return (
 		<ul className='sidebarMenu'>
 			<li className='sidebarMenu__item'>
 				<div className='sidebarMenu__item__text'>
-					<FaHome />
+					<HiHome />
 					<span>Home</span>
 				</div>
 			</li>
@@ -31,7 +32,7 @@ const SidebarMenu = () => {
 			</li>
 			<li className='sidebarMenu__item'>
 				<div className='sidebarMenu__item__text'>
-					<HiOutlineMail />
+					<MdOutlineEmail />
 					<span>Messages</span>
 				</div>
 			</li>
