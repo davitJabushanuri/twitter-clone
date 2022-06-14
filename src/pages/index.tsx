@@ -25,6 +25,9 @@ const Home: NextPage = () => {
 					<NewPost />
 					<Posts />
 				</section>
+				<section className='widgets'>
+					<Search />
+				</section>
 			</main>
 		</div>
 	)

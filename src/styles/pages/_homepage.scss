@@ -7,6 +7,14 @@ main {
 	@include mq('phone-wide') {
 		display: grid;
 		grid-template-columns: 4rem 1fr;
-		justify-content: center;
+	}
+
+	@include mq('tablet-wide') {
+		max-width: 1000px;
+		grid-template-columns: 4rem 4fr 1fr;
+	}
+
+	.widgets {
+		padding: 5px 1rem;
 	}
 }

@@ -23,7 +23,7 @@ const Post = () => {
 					From github commits to Github models
 				</p>
 				<div className='post__content__image'>
-					<img src='https://picsum.photos/id/1000/300/200' alt='post' />
+					<img src='https://picsum.photos/id/1/400/300' alt='post' />
 				</div>
 
 				<div className='post__content__actions'>
