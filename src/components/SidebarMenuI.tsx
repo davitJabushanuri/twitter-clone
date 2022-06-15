@@ -12,57 +12,75 @@ const SidebarMenu = () => {
 		<ul className='sidebarMenu'>
 			<li className='sidebarMenu__item'>
 				<div className='sidebarMenu__item__text'>
-					<HiHome />
-					<span>Home</span>
+					<span className='icon'>
+						<HiHome />
+					</span>
+					<span className='text'>Home</span>
 				</div>
 			</li>
 			<li className='sidebarMenu__item sidebarMenu__search'>
 				<div className='sidebarMenu__item__text'>
-					<FiSearch />
-					<span>Search</span>
+					<span className='icon'>
+						<FiSearch />
+					</span>
+					<span className='text'>Search</span>
 				</div>
 			</li>
 
 			<li className='sidebarMenu__item hide-tablet'>
 				<div className='sidebarMenu__item__text'>
-					<HiOutlineHashtag />
-					<span>Explore</span>
+					<span className='icon'>
+						<HiOutlineHashtag />
+					</span>
+					<span className='text'>Explore</span>
 				</div>
 			</li>
 			<li className='sidebarMenu__item'>
 				<div className='sidebarMenu__item__text'>
-					<BsBell />
-					<span>Notifications</span>
+					<span className='icon'>
+						<BsBell />
+					</span>
+					<span className='text'>Notifications</span>
 				</div>
 			</li>
 			<li className='sidebarMenu__item'>
 				<div className='sidebarMenu__item__text'>
-					<MdOutlineEmail />
-					<span>Messages</span>
+					<span className='icon'>
+						<MdOutlineEmail />
+					</span>
+					<span className='text'>Messages</span>
 				</div>
 			</li>
 			<li className='sidebarMenu__item hide-tablet'>
 				<div className='sidebarMenu__item__text'>
-					<BsBookmark />
-					<span>Bookmarks</span>
+					<span className='icon'>
+						<BsBookmark />
+					</span>
+					<span className='text'>Bookmarks</span>
 				</div>
 			</li>
 			<li className='sidebarMenu__item hide-tablet'>
 				<div className='sidebarMenu__item__text'>
-					<FaRegListAlt />
-					<span>Lists</span>
+					<span className='icon'>
+						<FaRegListAlt />
+					</span>
+					<span className='text'>Lists</span>
 				</div>
 			</li>
 			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
-					<BsPerson />
-					<span>Profile</span>
+					<span className='icon'>
+						<BsPerson />
+					</span>
+					<span className='text'>Profile</span>
 				</div>
 			</li>
 			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
-					<CgMoreO />
-					<span>More</span>
+					<span className='icon'>
+						<CgMoreO />
+					</span>
+					<span className='text'>More</span>
 				</div>
 			</li>
 		</ul>
