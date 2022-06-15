@@ -3,52 +3,82 @@
 .user {
 	display: none;
 
-	&__info {
+	&__bio {
 		display: none;
 	}
 
 	@include mq('phone-wide') {
 		margin-top: auto;
 		display: flex;
-		align-items: center;
-		gap: 1rem;
+		width: 100%;
+		gap: 0.4rem;
 		cursor: pointer;
+		border-radius: 50%;
 
-		&__avatar {
-			overflow: hidden;
-			padding: 0.4rem;
-			cursor: pointer;
+		&__photo {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border: none;
+			padding: 0.7rem;
 			border-radius: 50%;
-			font-size: 1.3rem;
-			color: #657786;
-			background: #ccd6dd;
+
+			&:hover {
+				background: #e8ebec;
+			}
+
+			&__avatar {
+				cursor: pointer;
+				display: flex;
+				padding: 0.4rem;
+				align-items: center;
+				justify-content: center;
+				border: none;
+				border-radius: 50%;
+				font-size: 1.4rem;
+				color: #657786;
+				background: #ccd6dd;
+			}
 		}
+	}
+
+	@include mq('desktop') {
+		display: grid;
+		grid-template-columns: 40px 1fr;
+		border-radius: 30px;
+		padding: 0 0.4rem;
 
 		&:hover {
-			background-color: rgb(219, 219, 219);
+			background: #e8ebec;
 		}
 
-		&__info {
-			display: none;
+		&__bio {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 
-			&__name {
-				font-weight: bold;
+			&__info {
+				display: flex;
+				flex-direction: column;
+
+				&__name {
+					font-weight: 500;
+					font-size: 0.8rem;
+				}
+
+				&__username {
+					font-size: 0.8rem;
+					color: rgb(44, 43, 43);
+				}
 			}
 
-			&__username {
-				font-size: 0.8rem;
-				font-weight: normal;
-				color: rgb(167, 167, 167);
+			&__button {
+				border: none;
+				background: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
 			}
-		}
-
-		&__button {
-			display: none;
-			margin-left: auto;
 		}
 	}
 }
