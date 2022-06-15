@@ -2,7 +2,7 @@
 .search {
 	display: none;
 
-	@include mq('tablet') {
+	@include mq('tablet-wide') {
 		padding: 0.6rem 1rem;
 		display: flex;
 		align-items: center;

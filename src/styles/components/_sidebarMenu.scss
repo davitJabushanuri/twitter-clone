@@ -46,12 +46,12 @@
 		}
 	}
 
-	@media (min-height: 500px) {
+	@media (min-height: 500px) and (min-width: 500px) {
 		.hide {
 			display: block;
 		}
 	}
-	@media (min-height: 700px) {
+	@media (min-height: 700px) and (min-width: 500px) {
 		.hide-tablet {
 			display: block;
 		}
