@@ -14,6 +14,10 @@ main {
 		max-width: 1000px;
 		grid-template-columns: 4rem 4fr 1fr;
 	}
+	@include mq('desktop') {
+		max-width: 1280px;
+		grid-template-columns: 14rem 4fr 1fr;
+	}
 
 	.widgets {
 		@include mq('tablet-wide') {

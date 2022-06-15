@@ -16,8 +16,13 @@ const SidebarMenu = () => {
 					<span>Home</span>
 				</div>
 			</li>
+			<li className='sidebarMenu__item sidebarMenu__search'>
+				<div className='sidebarMenu__item__text'>
+					<FiSearch />
+					<span>Search</span>
+				</div>
+			</li>
 
-			<FiSearch className='sidebarMenu__search' />
 			<li className='sidebarMenu__item hide-tablet'>
 				<div className='sidebarMenu__item__text'>
 					<HiOutlineHashtag />
