@@ -16,12 +16,19 @@ main {
 	}
 	@include mq('desktop') {
 		max-width: 1280px;
-		grid-template-columns: 15rem 2fr 1fr;
+		grid-template-columns: 2fr 6fr 3fr;
+	}
+
+	.feed {
+		border-right: 1px solid #e6ecf0;
 	}
 
 	.widgets {
 		@include mq('tablet-wide') {
-			padding: 5px 1rem;
+			padding: 5px 1.4rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
 		}
 	}
 }

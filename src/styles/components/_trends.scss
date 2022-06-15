@@ -1,0 +1,88 @@
+@use '../utilities/' as *;
+
+.trends {
+	display: none;
+
+	@include mq('tablet-wide') {
+		background-color: #eff3f4;
+		border-radius: 1rem;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+
+		&__title {
+			padding: 0.6rem;
+			font-size: 1.2rem;
+			font-weight: 700;
+		}
+
+		&__list {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			display: flex;
+			flex-direction: column;
+
+			&__item {
+				text-decoration: none;
+				color: #000;
+				padding: 0.4rem 0.6rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: start;
+
+				&:hover {
+					background-color: rgb(236, 235, 235);
+				}
+				&__link {
+					display: flex;
+					flex-direction: column;
+
+					&__category {
+						font-size: 0.8rem;
+						font-weight: 400;
+					}
+
+					&__hashtag {
+						font-size: 0.9rem;
+						font-weight: 700;
+					}
+
+					&__tweets {
+						font-size: 0.8rem;
+						font-weight: 400;
+					}
+				}
+
+				&__options {
+					border: none;
+					background-color: transparent;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+					padding: 0.5rem;
+					cursor: pointer;
+
+					&:hover {
+						color: $clr-primary;
+						background-color: rgba($color: #008cff, $alpha: 0.12);
+					}
+				}
+			}
+		}
+	}
+
+	&__showMore {
+		padding: 0.6rem;
+		border: none;
+		background-color: transparent;
+		color: $clr-primary;
+		font-size: 0.8rem;
+		cursor: pointer;
+		display: flex;
+		&:hover {
+			background-color: rgb(236, 235, 235);
+		}
+	}
+}

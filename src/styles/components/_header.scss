@@ -47,8 +47,4 @@
 			background: #f5f5f5;
 		}
 	}
-
-	@include mq('phone-wide') {
-		border-right: 1px solid #e6ecf0;
-	}
 }
