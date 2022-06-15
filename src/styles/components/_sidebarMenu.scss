@@ -1,9 +1,9 @@
 @use '../utilities/' as *;
 .sidebarMenu {
 	margin: 0;
-	padding: 1rem 0;
+	padding: 0;
 	list-style: none;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -29,6 +29,7 @@
 			}
 
 			span {
+				font-size: 1.1rem;
 				display: none;
 
 				@include mq('desktop') {
@@ -39,16 +40,8 @@
 	}
 	@include mq('phone-wide') {
 		flex-direction: column;
-		gap: 0.6rem;
+		gap: 0.4rem;
 		border: none;
-		&__item {
-			&__text {
-				span {
-					font-size: 1.4rem;
-					font-weight: 300;
-				}
-			}
-		}
 	}
 
 	@media (min-height: 500px) and (min-width: 500px) {

@@ -7,6 +7,7 @@
 	right: 0;
 	left: 0;
 	overflow: auto;
+	padding: 0 1rem;
 
 	&__logo {
 		display: none;
@@ -27,6 +28,26 @@
 		background-color: $clr-primary;
 		border-radius: 50%;
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+		&__text {
+			display: none;
+		}
+
+		@include mq('desktop') {
+			width: 100%;
+			height: 50px;
+			border-radius: 30px;
+
+			&__icon {
+				display: none;
+			}
+
+			&__text {
+				display: block;
+				font-weight: 500;
+				font-size: 1rem;
+			}
+		}
 	}
 
 	@include mq('phone-wide') {
@@ -40,15 +61,17 @@
 		border-right: 1px solid rgb(240, 240, 240);
 
 		&__logo {
-			width: 50px;
+			width: 60px;
+			height: 60px;
 			display: flex;
 			align-items: center;
-			font-size: 1.8rem;
-			padding: 0.8rem;
+			font-size: 2rem;
+			padding: 1rem;
 			cursor: pointer;
 			border-radius: 50%;
 			color: $clr-primary;
 			transition: 0.2s ease-in-out;
+			margin-top: 2px;
 
 			&:hover {
 				background-color: rgb(232, 252, 252);
@@ -60,5 +83,9 @@
 			font-size: 1.2rem;
 			margin-top: 1rem;
 		}
+	}
+
+	@include mq('desktop') {
+		align-items: flex-start;
 	}
 }

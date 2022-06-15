@@ -17,7 +17,10 @@ const Sidebar = () => {
 			<SidebarMenu />
 
 			{/* Tweet Button */}
-			<button className='sidebar__button'>{<RiQuillPenFill />}</button>
+			<button className='sidebar__button'>
+				<RiQuillPenFill className='sidebar__button__icon' />
+				<span className='sidebar__button__text'>Tweet</span>
+			</button>
 
 			{/* User */}
 			<User />

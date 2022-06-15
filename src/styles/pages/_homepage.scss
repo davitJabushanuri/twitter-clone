@@ -16,7 +16,7 @@ main {
 	}
 	@include mq('desktop') {
 		max-width: 1280px;
-		grid-template-columns: 14rem 4fr 1fr;
+		grid-template-columns: 15rem 4fr 1fr;
 	}
 
 	.widgets {
