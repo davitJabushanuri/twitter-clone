@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import NewPost from '../components/NewPost'
 import Posts from '../components/Posts'
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
 					<Search />
 					<Trends />
 					<WhatToFollow />
+					<Footer />
 				</section>
 			</main>
 		</div>

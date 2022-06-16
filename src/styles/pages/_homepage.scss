@@ -11,8 +11,9 @@ main {
 	}
 
 	@include mq('tablet-wide') {
-		max-width: 1000px;
-		grid-template-columns: 5rem 2fr 1fr;
+		max-width: 1280px;
+
+		grid-template-columns: 5rem 5fr 2fr;
 	}
 	@include mq('desktop') {
 		max-width: 1280px;
