@@ -12,7 +12,6 @@ main {
 
 	@include mq('tablet-wide') {
 		max-width: 1280px;
-
 		grid-template-columns: 5rem 5fr 2fr;
 	}
 	@include mq('desktop') {
@@ -24,8 +23,12 @@ main {
 		border-right: 1px solid #e6ecf0;
 	}
 
+	// TODO - fix position sticky
 	.widgets {
 		@include mq('tablet-wide') {
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
 			padding: 5px 1.4rem;
 			display: flex;
 			flex-direction: column;
