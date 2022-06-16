@@ -7,6 +7,7 @@ import Posts from '../components/Posts'
 import Search from '../components/Search'
 import Sidebar from '../components/Sidebar'
 import Trends from '../components/Trends'
+import WhatToFollow from '../components/WhatToFollow'
 
 const Home: NextPage = () => {
 	return (
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
 				<section className='widgets'>
 					<Search />
 					<Trends />
+					<WhatToFollow />
 				</section>
 			</main>
 		</div>

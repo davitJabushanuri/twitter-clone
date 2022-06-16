@@ -4,7 +4,7 @@
 	display: none;
 
 	@include mq('tablet-wide') {
-		background-color: #eff3f4;
+		background-color: #f7f9f9;
 		border-radius: 1rem;
 		display: flex;
 		flex-direction: column;
@@ -32,7 +32,7 @@
 				align-items: start;
 
 				&:hover {
-					background-color: rgb(236, 235, 235);
+					background-color: #ebebeb;
 				}
 				&__link {
 					display: flex;
@@ -74,7 +74,7 @@
 	}
 
 	&__showMore {
-		padding: 0.6rem;
+		padding: 0.8rem 0.6rem;
 		border: none;
 		background-color: transparent;
 		color: $clr-primary;
@@ -82,7 +82,7 @@
 		cursor: pointer;
 		display: flex;
 		&:hover {
-			background-color: rgb(236, 235, 235);
+			background-color: #ebebeb;
 		}
 	}
 }
