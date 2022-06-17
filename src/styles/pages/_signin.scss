@@ -1,6 +1,7 @@
 @use '../utilities/' as *;
 
 .signin {
+	min-height: 100vh;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-areas:
@@ -9,6 +10,7 @@
 		'footer';
 
 	&__actions {
+		justify-self: center;
 		padding: 2rem;
 		grid-area: actions;
 		display: grid;
@@ -23,14 +25,13 @@
 		}
 
 		&__title {
-			font-size: 2.8rem;
-			line-height: 3rem;
+			font-size: clamp(2.8rem, 2rem + 5vw, 4rem);
 			margin-bottom: 2rem;
 			font-weight: 700;
 		}
 
 		&__paragraph {
-			font-size: 1.6rem;
+			font-size: clamp(1.6rem, 1.4rem + 2vw, 2.4rem);
 			font-weight: 700;
 		}
 
@@ -120,6 +121,7 @@
 		flex-wrap: wrap;
 		gap: 0.4rem 0.6rem;
 		justify-content: center;
+		align-items: center;
 
 		&__link,
 		&__copyright {
@@ -130,6 +132,22 @@
 
 		&__link:hover {
 			text-decoration: underline;
+		}
+	}
+
+	@include mq('tablet-wide') {
+		grid-template-columns: 3fr minmax(600px, 2fr);
+		grid-template-rows: 1fr 60px;
+		grid-template-areas:
+			'wallpaper actions'
+			'footer footer';
+
+		&__actions {
+			justify-self: start;
+		}
+
+		&__wallpaper {
+			height: 100%;
 		}
 	}
 }
