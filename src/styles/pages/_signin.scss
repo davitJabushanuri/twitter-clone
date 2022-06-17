@@ -1,0 +1,92 @@
+@use '../utilities/' as *;
+
+.signin {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		'actions'
+		'wallpaper'
+		'footer';
+
+	&__actions {
+		padding: 2rem;
+		grid-area: actions;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 0.8rem;
+		align-items: center;
+
+		&__logo {
+			color: $clr-primary;
+			font-size: 3rem;
+			margin-bottom: 2rem;
+		}
+
+		&__title {
+			font-size: 2.8rem;
+			line-height: 3rem;
+			margin-bottom: 2rem;
+			font-weight: 700;
+		}
+
+		&__paragraph {
+			font-size: 1.6rem;
+			font-weight: 700;
+		}
+
+		&__google {
+			@extend %signinButton;
+		}
+
+		&__apple {
+			@extend %signinButton;
+		}
+
+		&__divider {
+			display: grid;
+			grid-template-columns: 1fr 1rem 1fr;
+			gap: 0.4rem;
+			align-items: center;
+			place-content: center;
+			max-width: 300px;
+
+			span {
+				background-color: aqua;
+				background-color: #e9e9e9;
+
+				height: 1px;
+			}
+
+			p {
+				font-size: 0.8rem;
+			}
+		}
+
+		&__signup {
+			@extend %signinButton;
+			background-color: $clr-primary;
+			color: #fff;
+			border-color: $clr-primary;
+		}
+
+		&__terms {
+			font-size: 0.7rem;
+			max-width: 300px;
+
+			a {
+				text-decoration: none;
+				color: $clr-primary;
+			}
+		}
+
+		&__haveAnAcc {
+			margin-top: 3rem;
+			font-weight: 700;
+		}
+
+		&__signinButton {
+			@extend %signinButton;
+			color: $clr-primary;
+		}
+	}
+}
