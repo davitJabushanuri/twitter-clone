@@ -33,7 +33,7 @@ const signIn = ({ providers }: any) => {
 				</button>
 				<span className='signin__actions__terms'>
 					By signing up, you agree to our <a href='#'>Terms of Service</a> and
-					<a href='#'>Privacy Policy</a>. Including <a href='#'>Cookie Use</a>.
+					<a href='#'> Privacy Policy</a>. Including <a href='#'>Cookie Use</a>.
 				</span>
 
 				<p className='signin__actions__haveAnAcc'>Already have an account?</p>

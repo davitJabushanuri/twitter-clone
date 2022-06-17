@@ -58,7 +58,7 @@
 			}
 
 			p {
-				font-size: 0.8rem;
+				font-size: 1rem;
 			}
 		}
 
@@ -67,6 +67,10 @@
 			background-color: $clr-primary;
 			color: #fff;
 			border-color: $clr-primary;
+
+			&:hover {
+				background-color: rgb(1, 139, 231);
+			}
 		}
 
 		&__terms {
@@ -87,6 +91,45 @@
 		&__signinButton {
 			@extend %signinButton;
 			color: $clr-primary;
+			margin-bottom: 1rem;
+
+			&:hover {
+				background-color: #f1f9fc;
+			}
+		}
+	}
+
+	&__wallpaper {
+		padding: 2rem;
+		grid-area: wallpaper;
+		background-image: url(../../../public/login-background.png);
+		background-size: cover;
+		height: 400px;
+
+		font-size: clamp(100px, 70vw, 350px);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__footer {
+		grid-area: footer;
+		padding: 0.8rem 2rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.6rem;
+		justify-content: center;
+
+		&__link,
+		&__copyright {
+			text-decoration: none;
+			color: rgb(75, 75, 75);
+			font-size: 0.7rem;
+		}
+
+		&__link:hover {
+			text-decoration: underline;
 		}
 	}
 }
