@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSession, signOut } from 'next-auth/react'
 
-const UserPopup = () => {
+const UserPopup = ({ setShowUserPopup, setShowSignOutPopup }) => {
 	const { data: session } = useSession()
 
 	return (
@@ -19,7 +19,10 @@ const UserPopup = () => {
 			</div>
 			<button className='userPopup__addAcc'>Add an existing account</button>
 			<button
-				onClick={() => session && signOut({ callbackUrl: '/auth/signin' })}
+				onClick={() => {
+					setShowSignOutPopup(true)
+					setShowUserPopup(false)
+				}}
 				className='userPopup__logout'
 			>
 				Log Out

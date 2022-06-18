@@ -11,7 +11,6 @@ import Trends from '../components/Trends'
 import WhatToFollow from '../components/WhatToFollow'
 
 import { useSession, signIn, signOut } from 'next-auth/react'
-import UserPopup from '../components/userPopup'
 
 const Home: NextPage = () => {
 	const { data: session } = useSession()
