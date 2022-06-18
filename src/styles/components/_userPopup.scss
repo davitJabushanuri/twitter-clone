@@ -1,0 +1,58 @@
+.userPopup {
+	position: absolute;
+	top: -210px;
+	left: -10px;
+	width: 300px;
+	background-color: #fff;
+	border-radius: 30px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	padding: 0.6rem 0;
+	font-size: 0.8rem;
+	z-index: 10;
+
+	&__header {
+		padding: 1rem;
+		display: flex;
+		gap: 0.6rem;
+		align-items: center;
+		border-bottom: 1px solid #e8ebec;
+
+		img {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+
+		&__info {
+			display: flex;
+			gap: 0.4rem;
+			flex-direction: column;
+
+			&__name {
+				font-weight: 500;
+			}
+
+			&__username {
+				color: rgb(65, 65, 65);
+				font-weight: 300;
+			}
+		}
+	}
+
+	&__addAcc,
+	&__logout {
+		display: flex;
+		align-items: center;
+		padding: 1rem 1.2rem;
+		border: none;
+		cursor: pointer;
+		background-color: #fff;
+
+		&:hover {
+			background-color: #f7f7f7;
+		}
+	}
+}

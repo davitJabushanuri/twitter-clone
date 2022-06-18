@@ -1,85 +1,88 @@
 @use '../utilities/' as *;
 
-.user {
-	display: none;
-
-	&__bio {
+.userContainer {
+	position: relative;
+	margin-top: auto;
+	.user {
 		display: none;
-	}
 
-	@include mq('phone-wide') {
-		margin-top: auto;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		gap: 0.4rem;
-		cursor: pointer;
-		border-radius: 50%;
+		&__bio {
+			display: none;
+		}
 
-		&__photo {
+		@include mq('phone-wide') {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			padding: 0.5rem;
+			width: 100%;
+			gap: 0.4rem;
+			cursor: pointer;
 			border-radius: 50%;
+
+			&__photo {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.5rem;
+				border-radius: 50%;
+
+				&:hover {
+					background: #e8ebec;
+				}
+
+				&__avatar {
+					cursor: pointer;
+					display: flex;
+					padding: 0.4rem;
+					align-items: center;
+					justify-content: center;
+					border: none;
+					border-radius: 50%;
+					font-size: 1.4rem;
+					color: #657786;
+					background: #ccd6dd;
+				}
+			}
+		}
+
+		@include mq('desktop') {
+			display: grid;
+			grid-template-columns: 50px 1fr;
+			border-radius: 100vmax;
+			padding: 0.4rem 0.3rem;
 
 			&:hover {
 				background: #e8ebec;
 			}
 
-			&__avatar {
-				cursor: pointer;
-				display: flex;
-				padding: 0.4rem;
-				align-items: center;
-				justify-content: center;
-				border: none;
-				border-radius: 50%;
-				font-size: 1.4rem;
-				color: #657786;
-				background: #ccd6dd;
-			}
-		}
-	}
-
-	@include mq('desktop') {
-		display: grid;
-		grid-template-columns: 50px 1fr;
-		border-radius: 100vmax;
-		padding: 0.4rem 0.3rem;
-
-		&:hover {
-			background: #e8ebec;
-		}
-
-		&__bio {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-
-			&__info {
-				display: flex;
-				flex-direction: column;
-
-				&__name {
-					font-weight: 500;
-					font-size: 0.8rem;
-				}
-
-				&__username {
-					font-size: 0.8rem;
-					color: rgb(44, 43, 43);
-				}
-			}
-
-			&__button {
-				border: none;
-				background: none;
+			&__bio {
 				display: flex;
 				align-items: center;
-				justify-content: center;
-				cursor: pointer;
+				justify-content: space-between;
+
+				&__info {
+					display: flex;
+					flex-direction: column;
+
+					&__name {
+						font-weight: 500;
+						font-size: 0.8rem;
+					}
+
+					&__username {
+						font-size: 0.8rem;
+						color: rgb(44, 43, 43);
+					}
+				}
+
+				&__button {
+					border: none;
+					background: none;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+				}
 			}
 		}
 	}
