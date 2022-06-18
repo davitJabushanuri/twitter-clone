@@ -2,11 +2,10 @@ import { FaTwitter } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { BsApple } from 'react-icons/bs'
 
-import { getProviders } from 'next-auth/react'
-import Image from 'next/image'
+import { getProviders, signIn } from 'next-auth/react'
 
-const signIn = ({ providers }: any) => {
-	console.log(providers)
+const SignIn = ({ providers }: any) => {
+	console.log(providers.google)
 	return (
 		<div className='signin'>
 			<section className='signin__actions'>
@@ -15,9 +14,12 @@ const signIn = ({ providers }: any) => {
 				</div>
 				<h1 className='signin__actions__title'>Happening now</h1>
 				<p className='signin__actions__paragraph'>Join Twitter today.</p>
-				<button className='signin__actions__google'>
+				<button
+					onClick={() => signIn(providers.google.id, { callbackUrl: '/' })}
+					className='signin__actions__google'
+				>
 					<FcGoogle />
-					Sign in with Google
+					Sign in with {providers.google.name}
 				</button>
 				<button className='signin__actions__apple'>
 					<BsApple />
@@ -109,4 +111,4 @@ export async function getServerSideProps() {
 	}
 }
 
-export default signIn
+export default SignIn
