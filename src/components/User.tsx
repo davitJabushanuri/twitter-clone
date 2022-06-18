@@ -13,11 +13,8 @@ const User = () => {
 	const [showUserPopup, setShowUserPopup] = useState(false)
 
 	return (
-		<div
-			onClick={() => setShowUserPopup(prev => !prev)}
-			className='userContainer'
-		>
-			<div className='user'>
+		<div className='userContainer'>
+			<div onClick={() => setShowUserPopup(prev => !prev)} className='user'>
 				<div className='user__photo'>
 					<button className='user__photo__avatar'>
 						{session ? (
