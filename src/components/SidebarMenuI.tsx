@@ -7,7 +7,11 @@ import { CgMoreO } from 'react-icons/cg'
 import { FiSearch } from 'react-icons/fi'
 import { MdOutlineEmail } from 'react-icons/md'
 
+import { useSession } from 'next-auth/react'
+
 const SidebarMenu = () => {
+	const { data: session } = useSession()
+
 	return (
 		<ul className='sidebarMenu'>
 			<li className='sidebarMenu__item'>
@@ -67,14 +71,16 @@ const SidebarMenu = () => {
 					<span className='text'>Lists</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item hide'>
-				<div className='sidebarMenu__item__text'>
-					<span className='icon'>
-						<BsPerson />
-					</span>
-					<span className='text'>Profile</span>
-				</div>
-			</li>
+			{session && (
+				<li className='sidebarMenu__item hide'>
+					<div className='sidebarMenu__item__text'>
+						<span className='icon'>
+							<BsPerson />
+						</span>
+						<span className='text'>Profile</span>
+					</div>
+				</li>
+			)}
 			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
 					<span className='icon'>
