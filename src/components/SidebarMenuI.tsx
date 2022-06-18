@@ -39,48 +39,52 @@ const SidebarMenu = () => {
 					<span className='text'>Explore</span>
 				</div>
 			</li>
-			<li className='sidebarMenu__item'>
-				<div className='sidebarMenu__item__text'>
-					<span className='icon'>
-						<BsBell />
-					</span>
-					<span className='text'>Notifications</span>
-				</div>
-			</li>
-			<li className='sidebarMenu__item'>
-				<div className='sidebarMenu__item__text'>
-					<span className='icon'>
-						<MdOutlineEmail />
-					</span>
-					<span className='text'>Messages</span>
-				</div>
-			</li>
-			<li className='sidebarMenu__item hide-tablet'>
-				<div className='sidebarMenu__item__text'>
-					<span className='icon'>
-						<BsBookmark />
-					</span>
-					<span className='text'>Bookmarks</span>
-				</div>
-			</li>
-			<li className='sidebarMenu__item hide-tablet'>
-				<div className='sidebarMenu__item__text'>
-					<span className='icon'>
-						<FaRegListAlt />
-					</span>
-					<span className='text'>Lists</span>
-				</div>
-			</li>
+
 			{session && (
-				<li className='sidebarMenu__item hide'>
-					<div className='sidebarMenu__item__text'>
-						<span className='icon'>
-							<BsPerson />
-						</span>
-						<span className='text'>Profile</span>
-					</div>
-				</li>
+				<>
+					<li className='sidebarMenu__item'>
+						<div className='sidebarMenu__item__text'>
+							<span className='icon'>
+								<BsBell />
+							</span>
+							<span className='text'>Notifications</span>
+						</div>
+					</li>
+					<li className='sidebarMenu__item'>
+						<div className='sidebarMenu__item__text'>
+							<span className='icon'>
+								<MdOutlineEmail />
+							</span>
+							<span className='text'>Messages</span>
+						</div>
+					</li>
+					<li className='sidebarMenu__item hide-tablet'>
+						<div className='sidebarMenu__item__text'>
+							<span className='icon'>
+								<BsBookmark />
+							</span>
+							<span className='text'>Bookmarks</span>
+						</div>
+					</li>
+					<li className='sidebarMenu__item hide-tablet'>
+						<div className='sidebarMenu__item__text'>
+							<span className='icon'>
+								<FaRegListAlt />
+							</span>
+							<span className='text'>Lists</span>
+						</div>
+					</li>
+					<li className='sidebarMenu__item hide'>
+						<div className='sidebarMenu__item__text'>
+							<span className='icon'>
+								<BsPerson />
+							</span>
+							<span className='text'>Profile</span>
+						</div>
+					</li>
+				</>
 			)}
+
 			<li className='sidebarMenu__item hide'>
 				<div className='sidebarMenu__item__text'>
 					<span className='icon'>

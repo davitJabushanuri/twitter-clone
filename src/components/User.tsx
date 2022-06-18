@@ -15,7 +15,7 @@ const User = () => {
 			<div className='user__photo'>
 				<button className='user__photo__avatar'>
 					{session ? (
-						<img src={session?.user?.image} width='100%' height='100%' />
+						<img src={session?.user?.image} />
 					) : (
 						<Link href='/auth/signin'>
 							<FaUserAlt />

@@ -31,7 +31,7 @@ const Home: NextPage = () => {
 				</section>
 				<section className='feed'>
 					<Header />
-					<NewPost />
+					{session && <NewPost />}
 					<Posts />
 				</section>
 				<section className='widgets'>
