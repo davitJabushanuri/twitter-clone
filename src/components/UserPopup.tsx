@@ -23,15 +23,21 @@ const UserPopup = ({ setShowUserPopup, setShowSignOutPopup }: any) => {
 			<div className='userPopup__addAcc'>
 				<Link href='/auth/signin'>Add an existing account</Link>
 			</div>
-			<div
-				onClick={() => {
-					setShowSignOutPopup(true)
-					setShowUserPopup(false)
-				}}
-				className='userPopup__logout'
-			>
-				Log Out
-			</div>
+			{session ? (
+				<div
+					onClick={() => {
+						setShowSignOutPopup(true)
+						setShowUserPopup(false)
+					}}
+					className='userPopup__logout'
+				>
+					Log Out
+				</div>
+			) : (
+				<div className='userPopup__logout'>
+					<Link href='/auth/signup'>Sign Up</Link>
+				</div>
+			)}
 		</div>
 	)
 }

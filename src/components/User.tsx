@@ -21,19 +21,18 @@ const User = ({ setShowSignOutPopup }: any) => {
 						{session ? (
 							<img src={session?.user?.image} alt='' />
 						) : (
-							<Link href='/auth/signin'>
-								<FaUserAlt />
-							</Link>
+							<FaUserAlt />
 						)}
 					</button>
 				</div>
+
 				<div className='user__bio'>
 					<div className='user__bio__info'>
 						<span className='user__bio__info__name'>
-							{session ? session?.user?.name : 'Sign in'}
+							{session ? session?.user?.name : `Login`}
 						</span>
 						<span className='user__bio__info__username'>
-							{session && session?.user?.email}
+							{session ? session?.user?.email : `or sign up`}
 						</span>
 					</div>
 					<button className='user__bio__button'>
