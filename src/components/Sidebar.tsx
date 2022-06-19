@@ -6,6 +6,7 @@ import { RiQuillPenFill } from 'react-icons/ri'
 import { useSession } from 'next-auth/react'
 
 import User from './User'
+import Link from 'next/link'
 
 const Sidebar = () => {
 	const { data: session } = useSession()
@@ -14,7 +15,9 @@ const Sidebar = () => {
 		<section className='sidebar'>
 			{/* Logo */}
 			<div className='sidebar__logo'>
-				<FaTwitter />
+				<Link href='/'>
+					<FaTwitter />
+				</Link>
 			</div>
 
 			{/* Menu */}
