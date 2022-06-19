@@ -8,7 +8,7 @@ import { useSession } from 'next-auth/react'
 import User from './User'
 import Link from 'next/link'
 
-const Sidebar = () => {
+const Sidebar = ({ setShowSignOutPopup }: any) => {
 	const { data: session } = useSession()
 
 	return (
@@ -32,7 +32,7 @@ const Sidebar = () => {
 			)}
 
 			{/* User */}
-			<User />
+			<User setShowSignOutPopup={setShowSignOutPopup} />
 		</section>
 	)
 }

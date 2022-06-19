@@ -5,14 +5,13 @@ import { FaUserAlt } from 'react-icons/fa'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 
-import UserPopup from './userPopup'
+import UserPopup from './UserPopup'
 import SignOutPopup from '../components/SignOutPopup'
 
-const User = () => {
+const User = ({ setShowSignOutPopup }: any) => {
 	const { data: session } = useSession()
 
 	const [showUserPopup, setShowUserPopup] = useState(false)
-	const [showSignOutPopup, setShowSignOutPopup] = useState(false)
 
 	return (
 		<div className='userContainer'>
@@ -47,9 +46,6 @@ const User = () => {
 					setShowUserPopup={setShowUserPopup}
 					setShowSignOutPopup={setShowSignOutPopup}
 				/>
-			)}
-			{showSignOutPopup && (
-				<SignOutPopup setShowSignOutPopup={setShowSignOutPopup} />
 			)}
 		</div>
 	)

@@ -11,9 +11,14 @@ import Trends from '../components/Trends'
 import WhatToFollow from '../components/WhatToFollow'
 
 import { useSession, signIn, signOut } from 'next-auth/react'
+import SignOutPopup from '../components/SignOutPopup'
+
+import { useState } from 'react'
 
 const Home: NextPage = () => {
 	const { data: session } = useSession()
+
+	const [showSignOutPopup, setShowSignOutPopup] = useState(false)
 
 	return (
 		<div>
@@ -25,7 +30,7 @@ const Home: NextPage = () => {
 
 			<main>
 				<section className='sidebar-container'>
-					<Sidebar />
+					<Sidebar setShowSignOutPopup={setShowSignOutPopup} />
 				</section>
 				<section className='feed'>
 					<Header />
@@ -38,6 +43,9 @@ const Home: NextPage = () => {
 					<WhatToFollow />
 					<Footer />
 				</section>
+				{showSignOutPopup && (
+					<SignOutPopup setShowSignOutPopup={setShowSignOutPopup} />
+				)}
 			</main>
 		</div>
 	)
