@@ -72,12 +72,14 @@ const NewPost = () => {
 					placeholder='What’s happening?'
 				/>
 				{image && (
-					<div onClick={() => setImage(null)} className='newPost__form__image'>
-						<MdClear className='newPost__form__image__clear' />
+					<div className='newPost__form__image'>
+						<MdClear
+							className='newPost__form__image__clear'
+							onClick={() => setImage(null)}
+						/>
 						<img src={image} alt='' />
 					</div>
 				)}
-				padding: 1rem;
 				<div className='newPost__form__actions'>
 					<div
 						onClick={() => postPhotoRef.current.click()}
