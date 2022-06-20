@@ -4,8 +4,7 @@ import Post from './Post'
 import { db } from '../../firebase'
 import { v4 } from 'uuid'
 
-const Posts = postsArray => {
-	console.log(postsArray)
+const Posts = () => {
 	const [posts, setPosts] = useState([])
 
 	useEffect(
@@ -20,7 +19,10 @@ const Posts = postsArray => {
 		[]
 	)
 
-	console.log(posts)
+	const secs = posts[0]?.createdAt
+	let time = new Date(secs)
+	let normalDate = new Date(secs).toLocaleString('en-GB', { timeZone: 'UTC' })
+	console.log(normalDate)
 
 	return (
 		<section className='posts'>

@@ -1,19 +1,32 @@
-import { FaUserAlt, FaRegComment } from 'react-icons/fa'
+import { FaRegComment } from 'react-icons/fa'
 import { FiMoreHorizontal, FiShare } from 'react-icons/fi'
 import { AiOutlineRetweet, AiOutlineHeart } from 'react-icons/ai'
+import Moment from 'react-moment'
 
-const Post = ({ user, username, userImage, text, image, createdAt, id }) => {
+const Post = ({
+	user,
+	username,
+	userImage,
+	text,
+	image,
+	createdAt,
+	id,
+}: any) => {
 	return (
 		<div className='post'>
 			<button className='post__user'>
-				<FaUserAlt />
+				<img src={userImage} alt='user' />
 			</button>
 			<div className='post__content'>
 				<div className='post__content__userInfo'>
 					<span className='post__content__userInfo__name'>{user}</span>
 					<span className='post__content__userInfo__username'>{username}</span>
 					<span className='post__content__userInfo__dot'></span>
-					<span className='post__content__userInfo__postDate'>10h</span>
+					<span className='post__content__userInfo__postDate'>
+						<Moment fromNow ago>
+							{createdAt?.toDate()}
+						</Moment>
+					</span>
 					<span className='post__content__userInfo__options'>
 						<FiMoreHorizontal />
 					</span>
