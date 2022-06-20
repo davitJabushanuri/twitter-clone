@@ -53,7 +53,6 @@
 
 			&__image {
 				position: relative;
-				background-color: aquamarine;
 
 				&__clear {
 					background-color: rgba(0, 0, 0, 0.5);
@@ -72,6 +71,10 @@
 					&:hover {
 						background-color: rgba(0, 0, 0, 0.7);
 					}
+				}
+				&__img {
+					border-radius: 1rem;
+					width: 100%;
 				}
 			}
 

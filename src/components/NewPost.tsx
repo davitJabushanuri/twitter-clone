@@ -77,7 +77,7 @@ const NewPost = () => {
 							className='newPost__form__image__clear'
 							onClick={() => setImage(null)}
 						/>
-						<img src={image} alt='' />
+						<img className='newPost__form__image__img' src={image} alt='' />
 					</div>
 				)}
 				<div className='newPost__form__actions'>
