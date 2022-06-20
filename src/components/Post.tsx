@@ -2,7 +2,7 @@ import { FaUserAlt, FaRegComment } from 'react-icons/fa'
 import { FiMoreHorizontal, FiShare } from 'react-icons/fi'
 import { AiOutlineRetweet, AiOutlineHeart } from 'react-icons/ai'
 
-const Post = () => {
+const Post = ({ user, username, userImage, text, image, createdAt, id }) => {
 	return (
 		<div className='post'>
 			<button className='post__user'>
@@ -10,8 +10,8 @@ const Post = () => {
 			</button>
 			<div className='post__content'>
 				<div className='post__content__userInfo'>
-					<span className='post__content__userInfo__name'>John Doe</span>
-					<span className='post__content__userInfo__username'>@John1995</span>
+					<span className='post__content__userInfo__name'>{user}</span>
+					<span className='post__content__userInfo__username'>{username}</span>
 					<span className='post__content__userInfo__dot'></span>
 					<span className='post__content__userInfo__postDate'>10h</span>
 					<span className='post__content__userInfo__options'>
@@ -19,14 +19,9 @@ const Post = () => {
 					</span>
 				</div>
 
-				<p className='post__content__text'>
-					From github commits to Github models
-				</p>
+				{text && <p className='post__content__text'>{text}</p>}
 				<div className='post__content__image'>
-					<img
-						src='https://images.pexels.com/photos/12175850/pexels-photo-12175850.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load'
-						alt='post'
-					/>
+					{image && <img src={image} alt='post' />}
 				</div>
 
 				<div className='post__content__actions'>
