@@ -51,6 +51,30 @@
 				}
 			}
 
+			&__image {
+				position: relative;
+				background-color: aquamarine;
+
+				&__clear {
+					background-color: rgba(0, 0, 0, 0.5);
+					color: #ffffff;
+					position: absolute;
+					border-radius: 50%;
+					padding: 4px;
+					font-size: 1.4rem;
+					top: 5px;
+					left: 5px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+
+					&:hover {
+						background-color: rgba(0, 0, 0, 0.7);
+					}
+				}
+			}
+
 			&__actions {
 				display: flex;
 				align-items: center;

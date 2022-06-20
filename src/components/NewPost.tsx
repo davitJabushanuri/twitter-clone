@@ -2,6 +2,7 @@ import { FaUserAlt } from 'react-icons/fa'
 import { AiOutlinePicture, AiOutlineGif } from 'react-icons/ai'
 import { BsEmojiSmile } from 'react-icons/bs'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
+import { MdClear } from 'react-icons/md'
 
 import { useState, useRef } from 'react'
 import { db, storage } from '../../firebase'
@@ -71,10 +72,12 @@ const NewPost = () => {
 					placeholder='What’s happening?'
 				/>
 				{image && (
-					<div className='newPost__form__image'>
+					<div onClick={() => setImage(null)} className='newPost__form__image'>
+						<MdClear className='newPost__form__image__clear' />
 						<img src={image} alt='' />
 					</div>
 				)}
+				padding: 1rem;
 				<div className='newPost__form__actions'>
 					<div
 						onClick={() => postPhotoRef.current.click()}
