@@ -9,8 +9,8 @@ const Posts = () => {
 
 	useEffect(() => {
 		const q = query(collection(db, 'posts'), orderBy('createdAt', 'desc'))
-		const unsubscribe = onSnapshot(q, snapshot => {
-			setPosts(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+		const unsubscribe = onSnapshot(q, (snapshot: any) => {
+			setPosts(snapshot.docs.map((doc: any) => ({ ...doc.data(), id: doc.id })))
 		})
 		return () => unsubscribe()
 	}, [])
