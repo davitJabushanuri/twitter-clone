@@ -29,27 +29,32 @@ const NewPost = () => {
 		if (e.target.files[0]) {
 			reader.readAsDataURL(e.target.files[0])
 		}
-		reader.onload = readerEvent => {
+		reader.onload = (readerEvent: any) => {
 			setImage(readerEvent.target.result)
 		}
 	}
 
 	const savePost = async () => {
-		const docRef = addDoc(collection(db, 'posts'), {
+		const collectionRef = collection(db, 'posts')
+		const payload = {
 			text: post,
 			user: session!.user!.name,
 			username: session!.user!.username,
 			userImage: session!.user!.image,
 			id: session!.user!.id,
 			createdAt: serverTimestamp(),
-		})
-
-		const imageRef = ref(storage, `posts/${(await docRef).id}/image`)
+		}
+		// add post to posts collection
+		const docRef = await addDoc(collectionRef, payload)
+		// create a reference to the location of the image
+		const imageRef = ref(storage, `posts/${docRef.id}/image`)
 
 		if (image) {
+			// upload image to storage and get url
 			await uploadString(imageRef, image, 'data_url').then(async () => {
 				const downloadURL = await getDownloadURL(imageRef)
-				await updateDoc(doc(db, 'posts', (await docRef).id), {
+				// update post with image url
+				await updateDoc(doc(db, 'posts', docRef.id), {
 					image: downloadURL,
 				})
 			})

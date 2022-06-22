@@ -7,28 +7,19 @@ import { v4 } from 'uuid'
 const Posts = () => {
 	const [posts, setPosts] = useState([])
 
-	useEffect(
-		() =>
-			onSnapshot(
-				query(collection(db, 'posts'), orderBy('createdAt', 'desc')),
-				snapshot => {
-					setPosts(snapshot.docs.map(doc => doc.data()))
-				}
-			),
-
-		[]
-	)
-
-	const secs = posts[0]?.createdAt
-	let time = new Date(secs)
-	let normalDate = new Date(secs).toLocaleString('en-GB', { timeZone: 'UTC' })
-	console.log(normalDate)
+	useEffect(() => {
+		const q = query(collection(db, 'posts'), orderBy('createdAt', 'desc'))
+		const unsubscribe = onSnapshot(q, (snapshot: any) => {
+			setPosts(snapshot.docs.map((doc: any) => ({ ...doc.data(), id: doc.id })))
+		})
+		return () => unsubscribe()
+	}, [])
 
 	return (
 		<section className='posts'>
 			{posts.map(post => (
 				<Post
-					key={v4()}
+					key={post?.id}
 					user={post?.user}
 					username={post?.username}
 					userImage={post?.userImage}

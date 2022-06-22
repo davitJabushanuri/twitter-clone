@@ -1,12 +1,21 @@
 import { FaRegComment } from 'react-icons/fa'
 import { FiMoreHorizontal, FiShare } from 'react-icons/fi'
-import { AiOutlineRetweet, AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineRetweet, AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import Moment from 'react-moment'
-import { doc, setDoc } from 'firebase/firestore'
+import {
+	collection,
+	deleteDoc,
+	doc,
+	onSnapshot,
+	setDoc,
+} from 'firebase/firestore'
 
 import { useSession } from 'next-auth/react'
 
 import { db } from '../../firebase'
+
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 const Post = ({
 	user,
@@ -17,7 +26,42 @@ const Post = ({
 	createdAt,
 	id,
 }: any) => {
+	const router = useRouter()
 	const { data: session } = useSession()
+	const [likes, setLikes] = useState([])
+	const [hasLiked, setHasLiked] = useState(false)
+
+	useEffect(() => {
+		const unsubscribe = onSnapshot(
+			collection(db, 'posts', id, 'likes'),
+			(snapshot: any) => {
+				setLikes(snapshot.docs.map((doc: any) => doc.data()))
+			}
+		)
+
+		return () => unsubscribe()
+	}, [db])
+
+	useEffect(() => {
+		setHasLiked(likes.some((like: any) => like.id === session?.user?.id))
+	}, [likes])
+
+	const handleLike = async () => {
+		if (session) {
+			if (hasLiked) {
+				await deleteDoc(doc(db, 'posts', id, 'likes', session?.user?.id))
+			} else {
+				const docRef = doc(db, 'posts', id, 'likes', session?.user?.id)
+				const payload = {
+					username: session!.user!.username,
+					id: session!.user!.id,
+				}
+				await setDoc(docRef, payload)
+			}
+		} else {
+			router.push('/auth/signin')
+		}
+	}
 
 	return (
 		<div className='post'>
@@ -46,13 +90,22 @@ const Post = ({
 
 				<div className='post__content__actions'>
 					<button className='post__content__actions__comment'>
-						<FaRegComment />
+						<FaRegComment className='ActionsIcon' />
 					</button>
 					<button className='post__content__actions__retweet'>
-						<AiOutlineRetweet />
+						<AiOutlineRetweet className='ActionsIcon' />
 					</button>
-					<button className='post__content__actions__like'>
-						<AiOutlineHeart />
+					<button onClick={handleLike} className='post__content__actions__like'>
+						{hasLiked ? (
+							<AiFillHeart className='ActionsIcon' style={{ color: 'red' }} />
+						) : (
+							<AiOutlineHeart className='ActionsIcon' />
+						)}
+						{likes.length && (
+							<span style={{ color: `${hasLiked ? 'red' : 'black'}` }}>
+								{likes.length}
+							</span>
+						)}
 					</button>
 					<button className='post__content__actions__share'>
 						<FiShare />
