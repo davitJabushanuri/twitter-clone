@@ -44,9 +44,9 @@ const NewPost = () => {
 			id: session!.user!.id,
 			createdAt: serverTimestamp(),
 		}
-
+		// add post to posts collection
 		const docRef = await addDoc(collectionRef, payload)
-
+		// create a reference to the location of the image
 		const imageRef = ref(storage, `posts/${docRef.id}/image`)
 
 		if (image) {
