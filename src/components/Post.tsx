@@ -2,6 +2,11 @@ import { FaRegComment } from 'react-icons/fa'
 import { FiMoreHorizontal, FiShare } from 'react-icons/fi'
 import { AiOutlineRetweet, AiOutlineHeart } from 'react-icons/ai'
 import Moment from 'react-moment'
+import { doc, setDoc } from 'firebase/firestore'
+
+import { useSession } from 'next-auth/react'
+
+import { db } from '../../firebase'
 
 const Post = ({
 	user,
@@ -12,6 +17,8 @@ const Post = ({
 	createdAt,
 	id,
 }: any) => {
+	const { data: session } = useSession()
+
 	return (
 		<div className='post'>
 			<button className='post__user'>

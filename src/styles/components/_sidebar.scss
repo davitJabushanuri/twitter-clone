@@ -66,15 +66,21 @@
 			display: flex;
 			align-items: center;
 			font-size: 2rem;
-			padding: 1rem;
-			cursor: pointer;
+			padding: 0.8rem;
 			border-radius: 50%;
-			color: $clr-primary;
 			transition: 0.2s ease-in-out;
-			margin-top: 2px;
+			margin-top: 5px;
 
 			&:hover {
 				background-color: rgb(232, 252, 252);
+			}
+
+			a {
+				display: block;
+				color: $clr-primary;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 		}
 

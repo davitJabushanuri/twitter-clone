@@ -16,7 +16,9 @@ const Sidebar = ({ setShowSignOutPopup }: any) => {
 			{/* Logo */}
 			<div className='sidebar__logo'>
 				<Link href='/'>
-					<FaTwitter />
+					<a>
+						<FaTwitter />
+					</a>
 				</Link>
 			</div>
 
