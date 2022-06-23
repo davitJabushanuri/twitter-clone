@@ -90,25 +90,31 @@ const Post = ({
 
 				<div className='post__content__actions'>
 					<button className='post__content__actions__comment'>
-						<FaRegComment className='ActionsIcon' />
+						<div className='ActionsIcon'>
+							<FaRegComment />
+						</div>
 					</button>
 					<button className='post__content__actions__retweet'>
-						<AiOutlineRetweet className='ActionsIcon' />
+						<div className='ActionsIcon'>
+							<AiOutlineRetweet />
+						</div>
 					</button>
 					<button onClick={handleLike} className='post__content__actions__like'>
-						{hasLiked ? (
-							<AiFillHeart className='ActionsIcon' style={{ color: 'red' }} />
-						) : (
-							<AiOutlineHeart className='ActionsIcon' />
-						)}
-						{likes.length && (
-							<span style={{ color: `${hasLiked ? 'red' : 'black'}` }}>
-								{likes.length}
-							</span>
+						<div className='ActionsIcon'>
+							{hasLiked ? (
+								<AiFillHeart style={{ color: '#F91880' }} />
+							) : (
+								<AiOutlineHeart />
+							)}
+						</div>
+						{likes.length > 0 && (
+							<span className={hasLiked ? 'liked' : ''}>{likes.length}</span>
 						)}
 					</button>
 					<button className='post__content__actions__share'>
-						<FiShare />
+						<div className='ActionsIcon'>
+							<FiShare />
+						</div>
 					</button>
 				</div>
 			</div>

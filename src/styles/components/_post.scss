@@ -2,7 +2,7 @@
 
 .post {
 	width: 100%;
-	padding: 1rem;
+	padding: 0.4rem 0.8rem;
 	display: grid;
 	grid-template-columns: 40px 1fr;
 	gap: 0.6rem;
@@ -103,44 +103,68 @@
 				background-color: transparent;
 				cursor: pointer;
 				outline: none;
-				padding: 0.6rem;
 				border-radius: 50%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				gap: 0.6rem;
+				gap: 0.3rem;
 
 				span {
-					font-size: 14px;
+					font-size: 0.8rem;
+				}
+
+				.ActionsIcon {
+					border-radius: 50%;
+					padding: 0.6rem;
+					display: flex;
+					align-items: flex-end;
+					justify-content: center;
+					color: #5a6976;
 				}
 			}
 
 			&__comment {
 				&:hover {
-					color: $clr-primary;
-					background-color: rgba(0, 110, 253, 0.1);
+					.ActionsIcon {
+						color: $clr-primary;
+						background-color: rgba(0, 110, 253, 0.1);
+					}
 				}
 			}
 
 			&__retweet {
 				&:hover {
-					color: rgb(0, 253, 0);
-					background-color: rgba(0, 255, 34, 0.08);
+					.ActionsIcon {
+						color: rgb(0, 253, 0);
+						background-color: rgba(0, 255, 34, 0.08);
+					}
 				}
 			}
 			&__like {
 				&:hover {
-					color: rgb(255, 18, 10);
-					background-color: rgba(253, 0, 0, 0.1);
+					.ActionsIcon {
+						color: #f91880;
+						background-color: rgba(253, 0, 0, 0.1);
+					}
+
+					span {
+						color: #f91880;
+					}
 				}
 			}
 
 			&__share {
 				&:hover {
-					color: $clr-primary;
-					background-color: rgba(0, 110, 253, 0.1);
+					.ActionsIcon {
+						color: $clr-primary;
+						background-color: rgba(0, 110, 253, 0.1);
+					}
 				}
 			}
 		}
 	}
+}
+
+.liked {
+	color: #f91880;
 }
