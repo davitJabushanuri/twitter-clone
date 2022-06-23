@@ -2,7 +2,6 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 import Post from './Post'
 import { db } from '../../firebase'
-import { v4 } from 'uuid'
 
 const Posts = () => {
 	const [posts, setPosts] = useState([])
@@ -14,7 +13,6 @@ const Posts = () => {
 		})
 		return () => unsubscribe()
 	}, [])
-
 	return (
 		<section className='posts'>
 			{posts.map(post => (
@@ -27,6 +25,7 @@ const Posts = () => {
 					image={post?.image}
 					createdAt={post?.createdAt}
 					id={post?.id}
+					userId={post?.userId}
 				/>
 			))}
 		</section>

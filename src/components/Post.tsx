@@ -1,6 +1,14 @@
 import { FaRegComment } from 'react-icons/fa'
-import { FiMoreHorizontal, FiShare } from 'react-icons/fi'
-import { AiOutlineRetweet, AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { FiMoreHorizontal, FiShare, FiFlag } from 'react-icons/fi'
+import {
+	AiOutlineRetweet,
+	AiOutlineHeart,
+	AiFillHeart,
+	AiOutlinePushpin,
+} from 'react-icons/ai'
+import { HiOutlineTrash } from 'react-icons/hi'
+import { ImEmbed2 } from 'react-icons/im'
+
 import Moment from 'react-moment'
 import {
 	collection,
@@ -12,10 +20,11 @@ import {
 
 import { useSession } from 'next-auth/react'
 
-import { db } from '../../firebase'
+import { db, storage } from '../../firebase'
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { deleteObject, getMetadata, ref } from 'firebase/storage'
 
 const Post = ({
 	user,
@@ -25,11 +34,14 @@ const Post = ({
 	image,
 	createdAt,
 	id,
+	userId,
 }: any) => {
 	const router = useRouter()
 	const { data: session } = useSession()
 	const [likes, setLikes] = useState([])
 	const [hasLiked, setHasLiked] = useState(false)
+	const [showModal, setShowModal] = useState(false)
+	const [deleteModal, setDeleteModal] = useState(false)
 
 	useEffect(() => {
 		const unsubscribe = onSnapshot(
@@ -63,6 +75,22 @@ const Post = ({
 		}
 	}
 
+	const deletePost = async () => {
+		//delete post from firestore
+		deleteDoc(doc(db, 'posts', id))
+
+		//check if object exists in storage
+		const objRef = ref(storage, `posts/${id}/image`)
+		getMetadata(objRef)
+			.then((metadata: any) => {
+				//delete object from storage
+				deleteObject(objRef)
+			})
+			.catch((error: any) => {
+				console.log(error)
+			})
+	}
+
 	return (
 		<div className='post'>
 			<button className='post__user'>
@@ -79,7 +107,69 @@ const Post = ({
 						</Moment>
 					</span>
 					<span className='post__content__userInfo__options'>
-						<FiMoreHorizontal />
+						{showModal && (
+							<div className='post__content__userInfo__options__modal'>
+								{session?.user?.id === userId && (
+									<div
+										onClick={() => {
+											setShowModal(false)
+											setDeleteModal(true)
+										}}
+										className='delete'
+									>
+										<HiOutlineTrash />
+										<span>Delete</span>
+									</div>
+								)}
+
+								<div className='pin'>
+									<AiOutlinePushpin />
+									<span>Pin to your profile</span>
+								</div>
+
+								<div className='embed'>
+									<ImEmbed2 />
+									<span>Embed Tweet</span>
+								</div>
+
+								<div className='report'>
+									<FiFlag />
+									<span>Report Tweet</span>
+								</div>
+							</div>
+						)}
+
+						<div
+							onClick={() => setShowModal(prev => !prev)}
+							className='post__content__userInfo__options__icon'
+						>
+							<FiMoreHorizontal />
+						</div>
+						{deleteModal && (
+							<div className='deleteModal'>
+								<div className='deleteModal__content'>
+									<h1 className='deleteModal__content__title'>Delete Tweet?</h1>
+									<p className='deleteModal__content__paragraph'>
+										This can’t be undone and it will be removed from your
+										profile, the timeline of any accounts that follow you, and
+										from Twitter search results.
+									</p>
+
+									<button
+										onClick={deletePost}
+										className='deleteModal__content__deleteButton'
+									>
+										Delete
+									</button>
+									<button
+										onClick={() => setDeleteModal(false)}
+										className='deleteModal__content__cancelButton'
+									>
+										Cancel
+									</button>
+								</div>
+							</div>
+						)}
 					</span>
 				</div>
 
