@@ -6,7 +6,12 @@
 	display: grid;
 	grid-template-columns: 40px 1fr;
 	gap: 0.6rem;
-	border-bottom: 1px solid #e6ecf0;
+	border-bottom: 1px solid #f7f7f7;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #fafafa;
+	}
 
 	&__user {
 		background-color: #e2e2e2;
