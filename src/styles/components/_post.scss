@@ -209,3 +209,61 @@
 .liked {
 	color: #f91880;
 }
+
+.deleteModal {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	cursor: auto;
+
+	&__content {
+		max-width: 330px;
+		background-color: #fff;
+		border-radius: 1rem;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+
+		&__title {
+			font-size: 1.5rem;
+			color: #0f1419;
+		}
+
+		&__paragraph {
+			color: #61717d;
+			margin-bottom: 1.2rem;
+			font-size: 1rem;
+		}
+
+		button {
+			cursor: pointer;
+			border-radius: 100vmax;
+			padding: 0.7rem;
+			font-weight: 700;
+			font-size: 1.1rem;
+		}
+
+		&__deleteButton {
+			background-color: #dc1e29;
+			color: #fff;
+			border: 1px solid #dc1e29;
+		}
+
+		&__cancelButton {
+			background-color: #fff;
+			color: #000;
+			border: 1px solid rgb(196, 196, 196);
+
+			&:hover {
+				background-color: rgb(240, 240, 240);
+			}
+		}
+	}
+}

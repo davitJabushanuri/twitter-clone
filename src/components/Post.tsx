@@ -24,7 +24,7 @@ import { db, storage } from '../../firebase'
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { deleteObject, ref } from 'firebase/storage'
+import { deleteObject, getMetadata, ref } from 'firebase/storage'
 
 const Post = ({
 	user,
@@ -41,6 +41,7 @@ const Post = ({
 	const [likes, setLikes] = useState([])
 	const [hasLiked, setHasLiked] = useState(false)
 	const [showModal, setShowModal] = useState(false)
+	const [deleteModal, setDeleteModal] = useState(false)
 
 	useEffect(() => {
 		const unsubscribe = onSnapshot(
@@ -77,8 +78,17 @@ const Post = ({
 	const deletePost = async () => {
 		//delete post from firestore
 		deleteDoc(doc(db, 'posts', id))
-		// delete post image from storage
-		deleteObject(ref(storage, `posts/${id}/image`))
+
+		//check if object exists in storage
+		const objRef = ref(storage, `posts/${id}/image`)
+		getMetadata(objRef)
+			.then((metadata: any) => {
+				//delete object from storage
+				deleteObject(objRef)
+			})
+			.catch((error: any) => {
+				console.log(error)
+			})
 	}
 
 	return (
@@ -100,7 +110,13 @@ const Post = ({
 						{showModal && (
 							<div className='post__content__userInfo__options__modal'>
 								{session?.user?.id === userId && (
-									<div onClick={deletePost} className='delete'>
+									<div
+										onClick={() => {
+											setShowModal(false)
+											setDeleteModal(true)
+										}}
+										className='delete'
+									>
 										<HiOutlineTrash />
 										<span>Delete</span>
 									</div>
@@ -129,6 +145,31 @@ const Post = ({
 						>
 							<FiMoreHorizontal />
 						</div>
+						{deleteModal && (
+							<div className='deleteModal'>
+								<div className='deleteModal__content'>
+									<h1 className='deleteModal__content__title'>Delete Tweet?</h1>
+									<p className='deleteModal__content__paragraph'>
+										This can’t be undone and it will be removed from your
+										profile, the timeline of any accounts that follow you, and
+										from Twitter search results.
+									</p>
+
+									<button
+										onClick={deletePost}
+										className='deleteModal__content__deleteButton'
+									>
+										Delete
+									</button>
+									<button
+										onClick={() => setDeleteModal(false)}
+										className='deleteModal__content__cancelButton'
+									>
+										Cancel
+									</button>
+								</div>
+							</div>
+						)}
 					</span>
 				</div>
 

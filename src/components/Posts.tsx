@@ -13,7 +13,6 @@ const Posts = () => {
 		})
 		return () => unsubscribe()
 	}, [])
-	console.log(posts)
 	return (
 		<section className='posts'>
 			{posts.map(post => (
