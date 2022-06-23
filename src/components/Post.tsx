@@ -33,6 +33,7 @@ const Post = ({
 	image,
 	createdAt,
 	id,
+	userId,
 }: any) => {
 	const router = useRouter()
 	const { data: session } = useSession()
@@ -90,10 +91,12 @@ const Post = ({
 					<span className='post__content__userInfo__options'>
 						{showModal && (
 							<div className='post__content__userInfo__options__modal'>
-								<div className='delete'>
-									<HiOutlineTrash />
-									<span>Delete</span>
-								</div>
+								{session?.user?.id === userId && (
+									<div className='delete'>
+										<HiOutlineTrash />
+										<span>Delete</span>
+									</div>
+								)}
 
 								<div className='pin'>
 									<AiOutlinePushpin />

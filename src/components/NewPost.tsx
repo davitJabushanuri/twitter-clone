@@ -41,7 +41,7 @@ const NewPost = () => {
 			user: session!.user!.name,
 			username: session!.user!.username,
 			userImage: session!.user!.image,
-			id: session!.user!.id,
+			userId: session!.user!.id,
 			createdAt: serverTimestamp(),
 		}
 		// add post to posts collection
