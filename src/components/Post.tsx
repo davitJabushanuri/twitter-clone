@@ -20,10 +20,11 @@ import {
 
 import { useSession } from 'next-auth/react'
 
-import { db } from '../../firebase'
+import { db, storage } from '../../firebase'
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { deleteObject, ref } from 'firebase/storage'
 
 const Post = ({
 	user,
@@ -73,6 +74,13 @@ const Post = ({
 		}
 	}
 
+	const deletePost = async () => {
+		//delete post from firestore
+		deleteDoc(doc(db, 'posts', id))
+		// delete post image from storage
+		deleteObject(ref(storage, `posts/${id}/image`))
+	}
+
 	return (
 		<div className='post'>
 			<button className='post__user'>
@@ -92,7 +100,7 @@ const Post = ({
 						{showModal && (
 							<div className='post__content__userInfo__options__modal'>
 								{session?.user?.id === userId && (
-									<div className='delete'>
+									<div onClick={deletePost} className='delete'>
 										<HiOutlineTrash />
 										<span>Delete</span>
 									</div>
