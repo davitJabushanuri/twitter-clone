@@ -79,16 +79,7 @@ const Post = ({
 		//delete post from firestore
 		deleteDoc(doc(db, 'posts', id))
 
-		//check if object exists in storage
-		const objRef = ref(storage, `posts/${id}/image`)
-		getMetadata(objRef)
-			.then((metadata: any) => {
-				//delete object from storage
-				deleteObject(objRef)
-			})
-			.catch((error: any) => {
-				console.log(error)
-			})
+		if (image) deleteObject(ref(storage, `posts/${id}/image`))
 	}
 
 	return (
