@@ -9,15 +9,19 @@
 	left: 0;
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;
 
 	.comment {
+		background-color: #fff;
 		position: relative;
 		width: 100%;
-		max-width: 700px;
+		max-width: 600px;
 		padding: 1rem;
 
 		&__header {
 			&__close {
+				width: 30px;
+				height: 30px;
 				display: flex;
 				align-items: center;
 				font-size: 1.2rem;
@@ -40,6 +44,83 @@
 				cursor: not-allowed;
 				opacity: 0.5;
 			}
+		}
+		.postInfo {
+			margin-top: 2rem;
+			display: grid;
+			grid-template-columns: 50px 1fr;
+			grid-template-areas: 'userImage userInfo';
+			gap: 1rem;
+
+			&__userImage {
+				grid-area: userImage;
+
+				img {
+					width: 50px;
+					height: 50px;
+					border-radius: 50%;
+				}
+				&__line {
+					height: calc(100% - 50px);
+					display: flex;
+					justify-content: center;
+					padding: 0.2rem;
+					span {
+						background-color: #cfd9de;
+						width: 2px;
+					}
+				}
+			}
+
+			&__content {
+				grid-area: userInfo;
+
+				&__userInfo {
+					display: flex;
+					gap: 0.2rem;
+					display: flex;
+					align-items: center;
+					margin-bottom: 0.2rem;
+
+					&__name {
+						font-weight: bold;
+					}
+					&__username {
+						color: #74787a;
+					}
+
+					&__dot {
+						width: 3px;
+						height: 3px;
+						background-color: #74787a;
+						border-radius: 50%;
+						display: flex;
+					}
+				}
+
+				&__tweet {
+					font-size: 1.2rem;
+				}
+
+				&__replying {
+					padding: 1rem 0;
+
+					span {
+						color: $clr-primary;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+
+	@media (min-width: 700px) {
+		background-color: rgba($color: #000000, $alpha: 0.3);
+		padding-top: 2rem;
+
+		.comment {
+			border-radius: 1rem;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 		}
 	}
 }
