@@ -1,0 +1,40 @@
+@use '../utilities/' as *;
+
+.commentContainer {
+	position: fixed;
+	background-color: #fff;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+
+	.comment {
+		position: relative;
+		width: 100%;
+		max-width: 700px;
+		padding: 1rem;
+
+		&__header {
+			&__close {
+				display: flex;
+				align-items: center;
+				font-size: 1.2rem;
+			}
+		}
+
+		&__reply {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			border: none;
+			border-radius: 100vmax;
+			padding: 0.4rem 1.2rem;
+			font-weight: 500;
+			color: #fff;
+			background-color: $clr-primary;
+			font-size: 0.9rem;
+		}
+	}
+}

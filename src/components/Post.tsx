@@ -25,6 +25,7 @@ import { db, storage } from '../../firebase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { deleteObject, getMetadata, ref } from 'firebase/storage'
+import CommentModal from './CommentModal'
 
 const Post = ({
 	user,
@@ -42,6 +43,7 @@ const Post = ({
 	const [hasLiked, setHasLiked] = useState(false)
 	const [showModal, setShowModal] = useState(false)
 	const [deleteModal, setDeleteModal] = useState(false)
+	const [commentModal, setCommentModal] = useState(false)
 
 	useEffect(() => {
 		const unsubscribe = onSnapshot(
@@ -79,6 +81,7 @@ const Post = ({
 		//delete post from firestore
 		deleteDoc(doc(db, 'posts', id))
 
+		// delete post image from storage if it exists
 		if (image) deleteObject(ref(storage, `posts/${id}/image`))
 	}
 
@@ -171,7 +174,7 @@ const Post = ({
 
 				<div className='post__content__actions'>
 					<button className='post__content__actions__comment'>
-						<div className='ActionsIcon'>
+						<div onClick={() => setCommentModal(true)} className='ActionsIcon'>
 							<FaRegComment />
 						</div>
 					</button>
@@ -199,6 +202,9 @@ const Post = ({
 					</button>
 				</div>
 			</div>
+			{commentModal && (
+				<CommentModal id={id} setCommentModal={setCommentModal} />
+			)}
 		</div>
 	)
 }
