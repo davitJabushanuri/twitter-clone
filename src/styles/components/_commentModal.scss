@@ -35,6 +35,11 @@
 			color: #fff;
 			background-color: $clr-primary;
 			font-size: 0.9rem;
+
+			&:disabled {
+				cursor: not-allowed;
+				opacity: 0.5;
+			}
 		}
 	}
 }

@@ -1,5 +1,8 @@
+import { doc, onSnapshot } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { VscChromeClose } from 'react-icons/vsc'
+import { db } from '../../firebase'
 
 interface Props {
 	id: string
@@ -7,7 +10,18 @@ interface Props {
 }
 
 const CommentModal = ({ id, setCommentModal }: Props) => {
-	console.log(window.innerWidth)
+	const [post, setPost] = useState({})
+
+	console.log(post)
+
+	useEffect(
+		() =>
+			onSnapshot(doc(db, 'posts', id), snapshot => {
+				setPost(snapshot?.data())
+			}),
+		[id, db]
+	)
+
 	return (
 		<div className='commentContainer'>
 			<div className='comment'>
@@ -20,7 +34,7 @@ const CommentModal = ({ id, setCommentModal }: Props) => {
 					</div>
 				</div>
 				<button className='comment__reply'>Reply</button>
-				{id}
+				{post.username}
 			</div>
 		</div>
 	)
