@@ -5,6 +5,8 @@ import { VscChromeClose } from 'react-icons/vsc'
 import { db } from '../../firebase'
 import Moment from 'react-moment'
 
+import { useSession } from 'next-auth/react'
+
 interface Props {
 	id: string
 	setCommentModal: any
@@ -12,8 +14,8 @@ interface Props {
 
 const CommentModal = ({ id, setCommentModal }: Props) => {
 	const [post, setPost] = useState({})
-
-	console.log(post)
+	const [comment, setComment] = useState([])
+	const { data: session } = useSession()
 
 	useEffect(
 		() =>
@@ -34,7 +36,9 @@ const CommentModal = ({ id, setCommentModal }: Props) => {
 						{window.innerWidth < 700 ? <BiArrowBack /> : <VscChromeClose />}
 					</div>
 				</div>
-				<button className='comment__reply'>Reply</button>
+				<button disabled={comment.length === 0} className='comment__reply'>
+					Reply
+				</button>
 				<div className='postInfo'>
 					<div className='postInfo__userImage'>
 						<img src={post.userImage} alt='' />
@@ -61,7 +65,19 @@ const CommentModal = ({ id, setCommentModal }: Props) => {
 						</div>
 					</div>
 				</div>
-				<div className='reply'></div>
+				<div className='replyTweet'>
+					<div className='replyTweet__userImage'>
+						<img src={session?.user?.image} alt='' />
+					</div>
+					<div className='replyTweet__content'>
+						<textarea
+							className='replyTweet__content__textarea'
+							placeholder='Tweet your reply'
+							value={comment}
+							onChange={(e: any) => setComment(e.target.value)}
+						/>
+					</div>
+				</div>
 			</div>
 		</div>
 	)
