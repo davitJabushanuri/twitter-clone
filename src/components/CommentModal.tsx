@@ -61,6 +61,7 @@ const CommentModal = ({ id, setCommentModal }: Props) => {
 						</div>
 					</div>
 				</div>
+				<div className='reply'></div>
 			</div>
 		</div>
 	)
