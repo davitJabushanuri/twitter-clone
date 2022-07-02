@@ -1,4 +1,10 @@
-import { doc, onSnapshot } from 'firebase/firestore'
+import {
+	addDoc,
+	collection,
+	doc,
+	onSnapshot,
+	serverTimestamp,
+} from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { VscChromeClose } from 'react-icons/vsc'
@@ -14,8 +20,21 @@ interface Props {
 
 const CommentModal = ({ id, setCommentModal }: Props) => {
 	const [post, setPost] = useState({})
-	const [comment, setComment] = useState([])
+	const [comment, setComment] = useState('')
 	const { data: session } = useSession()
+
+	const addComment = async () => {
+		await addDoc(collection(db, 'posts', id, 'comments'), {
+			comment,
+			user: session?.user?.name,
+			username: session?.user?.username,
+			userImage: session?.user?.image,
+			createdAt: serverTimestamp(),
+		})
+
+		setComment('')
+		setCommentModal(false)
+	}
 
 	useEffect(
 		() =>
@@ -36,7 +55,11 @@ const CommentModal = ({ id, setCommentModal }: Props) => {
 						{window.innerWidth < 700 ? <BiArrowBack /> : <VscChromeClose />}
 					</div>
 				</div>
-				<button disabled={comment.length === 0} className='comment__reply'>
+				<button
+					onClick={addComment}
+					disabled={comment.length === 0}
+					className='comment__reply'
+				>
 					Reply
 				</button>
 				<div className='postInfo'>
