@@ -40,6 +40,7 @@ const Post = ({
 	const router = useRouter()
 	const { data: session } = useSession()
 	const [likes, setLikes] = useState([])
+	const [comments, setComments] = useState([])
 	const [hasLiked, setHasLiked] = useState(false)
 	const [showModal, setShowModal] = useState(false)
 	const [deleteModal, setDeleteModal] = useState(false)
@@ -50,6 +51,17 @@ const Post = ({
 			collection(db, 'posts', id, 'likes'),
 			(snapshot: any) => {
 				setLikes(snapshot.docs.map((doc: any) => doc.data()))
+			}
+		)
+
+		return () => unsubscribe()
+	}, [db])
+
+	useEffect(() => {
+		const unsubscribe = onSnapshot(
+			collection(db, 'posts', id, 'comments'),
+			(snapshot: any) => {
+				setComments(snapshot.docs.map((doc: any) => doc.data()))
 			}
 		)
 
@@ -177,6 +189,7 @@ const Post = ({
 						<div onClick={() => setCommentModal(true)} className='ActionsIcon'>
 							<FaRegComment />
 						</div>
+						{comments.length > 0 && <span>{comments.length}</span>}
 					</button>
 					<button className='post__content__actions__retweet'>
 						<div className='ActionsIcon'>
