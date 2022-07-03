@@ -98,7 +98,7 @@ const Post = ({
 	}
 
 	return (
-		<div className='post'>
+		<div onClick={() => router.push(`posts/${id}`)} className='post'>
 			<button className='post__user'>
 				<img src={userImage} alt='user' />
 			</button>
