@@ -15,7 +15,9 @@ const Header = ({ isHomePage }: any) => {
 			{!isHomePage && (
 				<button className='header__backButton'>
 					<Link href='/'>
-						<BiArrowBack />
+						<a>
+							<BiArrowBack />
+						</a>
 					</Link>
 				</button>
 			)}

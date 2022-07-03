@@ -52,12 +52,18 @@
 		background: none;
 		border: none;
 		display: flex;
-		align-items: center;
-		justify-content: center;
 		font-size: 1.2rem;
 		padding: 0.6rem;
 		cursor: pointer;
 		border-radius: 50%;
+
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #657786;
+			text-decoration: none;
+		}
 
 		&:hover {
 			background: #e6e4e4;
