@@ -48,7 +48,10 @@
 
 		&__timestamp {
 			padding: 0.8rem 0;
+			display: flex;
 			font-size: 0.9rem;
+			align-items: center;
+			color: rgb(83, 100, 113);
 		}
 	}
 }

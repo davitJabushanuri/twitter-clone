@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { db } from '../../firebase'
 
 import { HiDotsHorizontal } from 'react-icons/hi'
+import { BsDot } from 'react-icons/bs'
 
 import Moment from 'react-moment'
 
@@ -43,7 +44,11 @@ const Tweet = ({ id }: any) => {
 					<img src={tweet?.image} alt='' />
 				</div>
 				<div className='Tweet__content__timestamp'>
-					<Moment unix format='h:mm  MMM D, YYYY' trim>
+					<Moment unix format='LT' trim>
+						{time}
+					</Moment>
+					<BsDot />
+					<Moment unix format='ll' trim>
 						{time}
 					</Moment>
 				</div>
