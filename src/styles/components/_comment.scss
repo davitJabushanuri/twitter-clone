@@ -1,0 +1,43 @@
+.comment {
+	padding: 1rem 0;
+	display: grid;
+	gap: 0.8rem;
+	grid-template-columns: 40px 1fr;
+	border-bottom: 1px solid #f1f1f1;
+
+	&__userImage {
+		border-radius: 50%;
+		cursor: pointer;
+
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	&__content {
+		font-size: 0.9rem;
+
+		&__user {
+			display: flex;
+			gap: 0.2rem;
+			align-items: center;
+			margin-bottom: 0.2rem;
+
+			&__name {
+				font-weight: 700;
+			}
+
+			&__username {
+				color: rgb(83, 100, 113);
+			}
+
+			&__timestamp {
+				color: rgb(83, 100, 113);
+			}
+
+			&__options {
+				margin-left: auto;
+			}
+		}
+	}
+}

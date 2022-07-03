@@ -1,4 +1,4 @@
-import { doc, onSnapshot } from 'firebase/firestore'
+import { collection, doc, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 import { db } from '../../firebase'
 
@@ -6,16 +6,33 @@ import { HiDotsHorizontal } from 'react-icons/hi'
 import { BsDot } from 'react-icons/bs'
 
 import Moment from 'react-moment'
+import Comments from './Comments'
 
 const Tweet = ({ id }: any) => {
 	const [tweet, setTweet] = useState(null)
+	const [comments, setComments] = useState([])
 
 	const time = tweet?.createdAt?.seconds
-	console.log(tweet)
+	console.log(comments)
 
 	useEffect(() => {
 		const unsubscribe = onSnapshot(doc(db, 'posts', id), (snapshot: any) => {
 			setTweet(snapshot.data())
+		})
+
+		return () => unsubscribe()
+	}, [db, id])
+
+	useEffect(() => {
+		const q = query(
+			collection(db, 'posts', id, 'comments'),
+			orderBy('createdAt', 'desc')
+		)
+
+		const unsubscribe = onSnapshot(q, (snapshot: any) => {
+			setComments(
+				snapshot.docs.map((doc: any) => ({ ...doc.data(), id: doc.id }))
+			)
 		})
 
 		return () => unsubscribe()
@@ -53,6 +70,7 @@ const Tweet = ({ id }: any) => {
 					</Moment>
 				</div>
 			</div>
+			<Comments comments={comments} />
 		</div>
 	)
 }
