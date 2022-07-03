@@ -98,7 +98,13 @@ const Post = ({
 	}
 
 	return (
-		<div onClick={() => router.push(`posts/${id}`)} className='post'>
+		<div
+			onClick={e => {
+				e.stopPropagation()
+				router.push(`posts/${id}`)
+			}}
+			className='post'
+		>
 			<button className='post__user'>
 				<img src={userImage} alt='user' />
 			</button>

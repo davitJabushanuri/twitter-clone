@@ -33,7 +33,7 @@ const Home: NextPage = () => {
 					<Sidebar setShowSignOutPopup={setShowSignOutPopup} />
 				</section>
 				<section className='feed'>
-					<Header />
+					<Header isHomePage={true} />
 					{session && <NewPost />}
 					<Posts />
 				</section>

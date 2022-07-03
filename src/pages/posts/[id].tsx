@@ -15,13 +15,13 @@ const TweetPage = () => {
 	console.log(id)
 
 	return (
-		<div>
+		<div className='TweetPage'>
 			<main>
 				<section className='sidebar-container'>
 					<Sidebar />
 				</section>
 				<section className='feed'>
-					<Header />
+					<Header isHomePage={false} />
 					<Tweet id={id} />
 				</section>
 				<section className='widgets'>
