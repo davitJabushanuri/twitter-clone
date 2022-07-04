@@ -98,13 +98,7 @@ const Post = ({
 	}
 
 	return (
-		<div
-			onClick={e => {
-				e.stopPropagation()
-				router.push(`posts/${id}`)
-			}}
-			className='post'
-		>
+		<div className='post'>
 			<button className='post__user'>
 				<img src={userImage} alt='user' />
 			</button>
@@ -185,7 +179,14 @@ const Post = ({
 					</span>
 				</div>
 
-				{text && <p className='post__content__text'>{text}</p>}
+				{text && (
+					<p
+						onClick={e => router.push(`posts/${id}`)}
+						className='post__content__text'
+					>
+						{text}
+					</p>
+				)}
 				<div className='post__content__image'>
 					{image && <img src={image} alt='post' />}
 				</div>
