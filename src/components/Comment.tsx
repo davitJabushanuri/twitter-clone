@@ -1,8 +1,22 @@
 import Moment from 'react-moment'
 import { BsDot } from 'react-icons/bs'
 import { HiDotsHorizontal } from 'react-icons/hi'
+import { deleteDoc, doc } from 'firebase/firestore'
+import { db } from '../../firebase'
 
-const Comment = ({ comment, user, username, userImage, createdAt }: any) => {
+const Comment = ({
+	commentId,
+	postId,
+	comment,
+	user,
+	username,
+	userImage,
+	createdAt,
+}: any) => {
+	const deleteComment = () => {
+		deleteDoc(doc(db, 'posts', postId, 'comments', commentId))
+	}
+
 	return (
 		<div className='tweetComment'>
 			<div className='tweetComment__userImage'>
@@ -20,7 +34,10 @@ const Comment = ({ comment, user, username, userImage, createdAt }: any) => {
 							{createdAt}
 						</Moment>
 					</div>
-					<div className='tweetComment__content__user__options'>
+					<div
+						onClick={deleteComment}
+						className='tweetComment__content__user__options'
+					>
 						<HiDotsHorizontal />
 					</div>
 				</div>

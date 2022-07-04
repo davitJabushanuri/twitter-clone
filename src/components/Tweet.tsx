@@ -13,7 +13,6 @@ const Tweet = ({ id }: any) => {
 	const [comments, setComments] = useState([])
 
 	const time = tweet?.createdAt?.seconds
-	console.log(comments)
 
 	useEffect(() => {
 		const unsubscribe = onSnapshot(doc(db, 'posts', id), (snapshot: any) => {
@@ -70,7 +69,7 @@ const Tweet = ({ id }: any) => {
 					</Moment>
 				</div>
 			</div>
-			<Comments comments={comments} />
+			<Comments comments={comments} postId={id} />
 		</div>
 	)
 }
