@@ -12,8 +12,6 @@ const TweetPage = () => {
 	const router = useRouter()
 	const { id } = router.query
 
-	console.log(id)
-
 	return (
 		<div className='TweetPage'>
 			<main>

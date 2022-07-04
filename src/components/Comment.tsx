@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Moment from 'react-moment'
 import { BsDot } from 'react-icons/bs'
 import { HiDotsHorizontal } from 'react-icons/hi'
@@ -8,6 +9,7 @@ import { useSession } from 'next-auth/react'
 const Comment = ({
 	commentId,
 	postId,
+	userId,
 	comment,
 	user,
 	username,
@@ -15,7 +17,6 @@ const Comment = ({
 	createdAt,
 }: any) => {
 	const { data: session } = useSession()
-	console.log(session.user.id)
 
 	const deleteComment = () => {
 		deleteDoc(doc(db, 'posts', postId, 'comments', commentId))

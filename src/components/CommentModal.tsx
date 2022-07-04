@@ -27,6 +27,7 @@ const CommentModal = ({ id, setCommentModal }: Props) => {
 		await addDoc(collection(db, 'posts', id, 'comments'), {
 			comment,
 			user: session?.user?.name,
+			userId: session?.user?.id,
 			username: session?.user?.username,
 			userImage: session?.user?.image,
 			createdAt: serverTimestamp(),

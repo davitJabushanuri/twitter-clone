@@ -10,6 +10,7 @@ const Comments = ({ comments, postId }: any) => {
 						key={comment.id}
 						commentId={comment.id}
 						postId={postId}
+						userId={comment.userId}
 						comment={comment.comment}
 						user={comment.user}
 						username={comment.username}
