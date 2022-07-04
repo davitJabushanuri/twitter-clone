@@ -3,6 +3,7 @@ import { BsDot } from 'react-icons/bs'
 import { HiDotsHorizontal } from 'react-icons/hi'
 import { deleteDoc, doc } from 'firebase/firestore'
 import { db } from '../../firebase'
+import { useSession } from 'next-auth/react'
 
 const Comment = ({
 	commentId,
@@ -13,6 +14,9 @@ const Comment = ({
 	userImage,
 	createdAt,
 }: any) => {
+	const { data: session } = useSession()
+	console.log(session.user.id)
+
 	const deleteComment = () => {
 		deleteDoc(doc(db, 'posts', postId, 'comments', commentId))
 	}

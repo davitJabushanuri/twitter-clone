@@ -15,7 +15,7 @@ const Posts = () => {
 	}, [])
 	return (
 		<section className='posts'>
-			{posts.map(post => (
+			{posts.map((post: any) => (
 				<Post
 					key={post?.id}
 					user={post?.user}

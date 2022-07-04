@@ -14,27 +14,31 @@ const Tweet = ({ id }: any) => {
 
 	const time = tweet?.createdAt?.seconds
 
+	useEffect(
+		() =>
+			id &&
+			onSnapshot(doc(db, 'posts', id), (snapshot: any) => {
+				setTweet(snapshot.data())
+			}),
+
+		[db, id]
+	)
+
 	useEffect(() => {
-		const unsubscribe = onSnapshot(doc(db, 'posts', id), (snapshot: any) => {
-			setTweet(snapshot.data())
-		})
-
-		return () => unsubscribe()
-	}, [db, id])
-
-	useEffect(() => {
-		const q = query(
-			collection(db, 'posts', id, 'comments'),
-			orderBy('createdAt', 'desc')
-		)
-
-		const unsubscribe = onSnapshot(q, (snapshot: any) => {
-			setComments(
-				snapshot.docs.map((doc: any) => ({ ...doc.data(), id: doc.id }))
+		if (id) {
+			const q = query(
+				collection(db, 'posts', id, 'comments'),
+				orderBy('createdAt', 'desc')
 			)
-		})
 
-		return () => unsubscribe()
+			const unsubscribe = onSnapshot(q, (snapshot: any) => {
+				setComments(
+					snapshot.docs.map((doc: any) => ({ ...doc.data(), id: doc.id }))
+				)
+			})
+
+			return () => unsubscribe()
+		}
 	}, [db, id])
 
 	return (
