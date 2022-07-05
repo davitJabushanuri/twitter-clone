@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react'
 import { FiMoreHorizontal } from 'react-icons/fi'
 import { FaUserAlt } from 'react-icons/fa'
@@ -9,7 +10,7 @@ import UserPopup from './UserPopup'
 import SignOutPopup from '../components/SignOutPopup'
 
 const User = ({ setShowSignOutPopup }: any) => {
-	const { data: session } = useSession()
+	const { data: session }: any = useSession()
 
 	const [showUserPopup, setShowUserPopup] = useState(false)
 

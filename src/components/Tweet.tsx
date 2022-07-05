@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { collection, doc, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 import { db } from '../../firebase'
@@ -9,7 +10,7 @@ import Moment from 'react-moment'
 import Comments from './Comments'
 
 const Tweet = ({ id }: any) => {
-	const [tweet, setTweet] = useState(null)
+	const [tweet, setTweet]: any = useState(null)
 	const [comments, setComments] = useState([])
 
 	const time = tweet?.createdAt?.seconds

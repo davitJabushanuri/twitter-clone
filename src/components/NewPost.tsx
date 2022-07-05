@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { FaUserAlt } from 'react-icons/fa'
 import { AiOutlinePicture, AiOutlineGif } from 'react-icons/ai'
 import { BsEmojiSmile } from 'react-icons/bs'
@@ -18,11 +19,11 @@ import { useSession } from 'next-auth/react'
 import { getDownloadURL, ref, uploadString } from 'firebase/storage'
 
 const NewPost = () => {
-	const { data: session } = useSession()
+	const { data: session }: any = useSession()
 
 	const [post, setPost] = useState('')
 	const [image, setImage] = useState(null)
-	const postPhotoRef = useRef(null)
+	const postPhotoRef: any = useRef(null)
 
 	const addImage = (e: any) => {
 		const reader = new FileReader()

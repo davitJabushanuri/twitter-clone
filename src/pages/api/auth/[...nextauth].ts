@@ -4,18 +4,18 @@ export default NextAuth({
 	// Configure one or more authentication providers
 	providers: [
 		GoogleProvider({
-			clientId: process.env.NEXT_PUBLIC_GOOGLE_ID,
-			clientSecret: process.env.NEXT_PUBLIC_GOOGLE_SECRET,
+			clientId: process.env.NEXT_PUBLIC_GOOGLE_ID!,
+			clientSecret: process.env.NEXT_PUBLIC_GOOGLE_SECRET!,
 		}),
 		// ...add more providers here
 	],
 
 	pages: {
-		signin: '/auth/signin',
+		signIn: '/auth/signin',
 	},
 
 	callbacks: {
-		async session({ session, token }) {
+		async session({ session, token }: any) {
 			session.user.username =
 				'@' + session.user.name.split(' ').join('').toLowerCase()
 

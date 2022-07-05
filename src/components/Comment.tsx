@@ -21,7 +21,9 @@ const Comment = ({
 	userImage,
 	createdAt,
 }: any) => {
-	const { data: session } = useSession()
+	const { data: session }: any = useSession()
+
+	console.log(session)
 
 	const [optionsModal, setOptionsModal] = useState(false)
 	const [deleteModal, setDeleteModal] = useState(false)

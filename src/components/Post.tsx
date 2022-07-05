@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { FaRegComment } from 'react-icons/fa'
 import { FiMoreHorizontal, FiShare, FiFlag } from 'react-icons/fi'
 import {
@@ -38,7 +39,7 @@ const Post = ({
 	userId,
 }: any) => {
 	const router = useRouter()
-	const { data: session } = useSession()
+	const { data: session }: any = useSession()
 	const [likes, setLikes] = useState([])
 	const [comments, setComments] = useState([])
 	const [hasLiked, setHasLiked] = useState(false)

@@ -1,9 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import Link from 'next/link'
 
 const UserPopup = ({ setShowUserPopup, setShowSignOutPopup }: any) => {
-	const { data: session } = useSession()
+	const { data: session }: any = useSession()
 
 	return (
 		<div className='userPopup'>

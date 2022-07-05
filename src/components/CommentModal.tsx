@@ -20,9 +20,9 @@ interface Props {
 }
 
 const CommentModal = ({ id, setCommentModal }: Props) => {
-	const [post, setPost] = useState({})
+	const [post, setPost]: any = useState({})
 	const [comment, setComment] = useState('')
-	const { data: session } = useSession()
+	const { data: session }: any = useSession()
 
 	const addComment = async () => {
 		await addDoc(collection(db, 'posts', id, 'comments'), {
