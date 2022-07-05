@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {
 	addDoc,
 	collection,
@@ -39,7 +40,7 @@ const CommentModal = ({ id, setCommentModal }: Props) => {
 
 	useEffect(
 		() =>
-			onSnapshot(doc(db, 'posts', id), snapshot => {
+			onSnapshot(doc(db, 'posts', id), (snapshot: any) => {
 				setPost(snapshot.data())
 			}),
 		[id, db]

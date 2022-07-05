@@ -1,3 +1,5 @@
+@use '../utilities/' as *;
+
 .tweetComment {
 	padding: 1rem 0;
 	display: grid;
@@ -37,7 +39,53 @@
 
 			&__options {
 				margin-left: auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0.4rem;
 				cursor: pointer;
+				position: relative;
+
+				&__modal {
+					background-color: #fff;
+					width: 300px;
+					border-radius: 0.4rem;
+					position: absolute;
+					left: -300px;
+					top: 0;
+
+					display: flex;
+					flex-direction: column;
+					box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+					font-size: 1.1rem;
+
+					& > div {
+						display: flex;
+						align-items: center;
+						gap: 1rem;
+						padding: 1rem;
+
+						&:hover {
+							background-color: #f7f7f7;
+						}
+					}
+
+					.delete {
+						color: #ff0000;
+					}
+				}
+
+				&__icon {
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0.4rem;
+					&:hover {
+						color: $clr-primary;
+						background-color: rgba($color: #bcd8f3, $alpha: 0.6);
+					}
+				}
 			}
 		}
 	}
